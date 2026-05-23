@@ -80,6 +80,12 @@ Reusable [template](https://docs.docker.com/ai/sandboxes/customize/templates/) i
 - [caynev/sbx-pi](https://github.com/caynev/sbx-pi) — Template for Pi.
 - [trq/pi-sandbox](https://github.com/trq/pi-sandbox) — Minimal template for running vanilla Pi in the `shell` sandbox environment.
 
+## GUIs & Dashboards
+
+Graphical and desktop tools for managing sandboxes, agents, and worktrees.
+
+- [mdelapenya/biomelab](https://github.com/mdelapenya/biomelab) — Desktop GUI for managing git worktrees and coding agents running in Docker Sandboxes (`sbx`). One sandbox per agent per repo; real-time sandbox lifecycle controls (create/start/stop/remove), worktree cards showing branch, dirty, sync, and PR status, multi-repo dashboard, and agent detection for Claude, Kiro, Copilot, Codex, OpenCode, and Gemini.
+
 ## Agent-Specific Setups
 
 Personal and project setups focused on a particular agent or environment.
