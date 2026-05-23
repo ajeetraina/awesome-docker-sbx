@@ -5,7 +5,15 @@
 [Docker Sandboxes](https://www.docker.com/products/docker-sandboxes/) is a standalone CLI (`sbx`) that runs AI coding agents like Claude Code, Codex, Gemini CLI, Copilot CLI, OpenCode, and Kiro inside isolated **microVMs** — each with its own kernel, Docker daemon, filesystem, and network. The agent can build images, install packages, and modify files in full autonomy without ever touching the host. This list tracks how the community is using, extending, and building on top of `sbx`.
 
 > [!NOTE]
-> This is a community-maintained list and is **not affiliated with or endorsed by Docker**. Many entries are early-stage and experimental — most are personal or demo repositories with few or no stars. Inclusion here is **not** an endorsement; check each project’s own status, license, and security posture before use. Contributions and corrections welcome (see [Contributing](#contributing)).
+> This is a community-maintained list and is **not affiliated with or endorsed by Docker**. Many entries are early-stage and experimental — most are personal or demo repositories with few or no stars. Inclusion here is **not** an endorsement; check each project's own status, license, and security posture before use. Contributions and corrections welcome (see [Contributing](#contributing)).
+
+## How this list is maintained
+
+This list is **human-curated, with an AI agent assisting discovery.** A [Docker Agent](./workflow/auto-curator-agent/sbx-curator.yaml) (the `sbx` Curator) runs on a schedule via [GitHub Actions](./.github/workflows/sbx-auto-curator.yml). It searches GitHub and the web for new `sbx`-related projects, judges each candidate for relevance, maturity, and credential-handling/security posture, and proposes additions to a separate **unreviewed** queue. A human reviews those before anything is promoted into the curated sections above.
+
+The agent is deliberately scoped so it can only append to the unreviewed queue — it never edits the hand-curated entries. Final categorization, wording, and inclusion are human decisions. Contributions from people (issues and PRs) are equally welcome and reviewed the same way.
+
+The curator itself is built with [Docker Agent](https://docs.docker.com/ai/cagent/) and a [Nemotron](https://build.nvidia.com) model — a small, fitting example of the kind of agent tooling this list catalogs.
 
 ## Contents
 
@@ -19,6 +27,7 @@
 - [Guides & Tutorials](#guides--tutorials)
 - [Articles & Deep Dives](#articles--deep-dives)
 - [Background & Comparisons](#background--comparisons)
+- [Recently discovered (auto-added, unreviewed)](#recently-discovered-auto-added-unreviewed)
 - [Contributing](#contributing)
 
 ## Official
@@ -35,7 +44,7 @@ Resources maintained by Docker.
 
 Tools that wrap `sbx` to streamline per-project or per-task setup. A notable pattern: several independent authors have converged on a **declarative config → bootstrapped sandbox** model, suggesting shared appetite for one-command setup above the base CLI.
 
-- [maxkrivich/sbx-toolkit](https://github.com/maxkrivich/sbx-toolkit) — “Dotfiles for sandboxes.” Two tools — `sbx-setup` (run once per machine to bake in agent config, tool versions via `mise`, and packages) and `sbx-start` (one command per project, reads `.sbx.toml`). Shareable templates and a machine-level base image model.
+- [maxkrivich/sbx-toolkit](https://github.com/maxkrivich/sbx-toolkit) — "Dotfiles for sandboxes." Two tools — `sbx-setup` (run once per machine to bake in agent config, tool versions via `mise`, and packages) and `sbx-start` (one command per project, reads `.sbx.toml`). Shareable templates and a machine-level base image model.
 - [HenrikPoulsen/sbxgo](https://github.com/HenrikPoulsen/sbxgo) — Single-binary Go CLI focused on **per-repo reproducibility**. Commits `.sbxgo/config.toml` to the repo so the whole team shares one environment; supports kits/templates, drift detection, and sandbox-scoped allow/deny domains. Ships versioned binaries with SHA-256 verification. Agent-agnostic.
 - [travisallendotdev/agentbox](https://github.com/travisallendotdev/agentbox) — TypeScript/Bun CLI focused on **per-task bootstrap** for Claude Code. One command (`agentbox up project.yaml`) injects secrets, clones repos, loads skills/plugins/hooks, runs lifecycle phases, and fires the agent with an initial prompt. Build from source.
 - [lukehedger/sbox](https://github.com/lukehedger/sbox) — Lightweight shell wrapper for launching **one-off Claude Code sandboxes** with opinionated defaults: branch-mode worktrees, `caffeinate` on macOS, Opus + `--dangerously-skip-permissions`, and `acli`/`bun` baked into a snapshotted template. Note: forwards Anthropic and Atlassian credentials into the sandbox via host env vars rather than the `sbx` credential proxy.
@@ -49,8 +58,8 @@ Declarative YAML artifacts ([kits](https://docs.docker.com/ai/sandboxes/customiz
 - [docker/sbx-kits-contrib](https://github.com/docker/sbx-kits-contrib) — The central community kit collection (also under Official). Reference examples for common kit patterns, plus a build-your-own-agent tutorial using the Amp kit.
 - [dvdksn/kits-cookbook](https://github.com/dvdksn/kits-cookbook) — A cookbook of example kits for `sbx`, by a Docker docs maintainer. Useful as a pattern reference.
 - [kernel/docker-sbx-kit](https://github.com/kernel/docker-sbx-kit) — Vendor integration from [Kernel](https://www.kernel.sh) (agent browser infrastructure). Mixin kit providing the Kernel CLI, Kernel skills for Claude Code, and proxy-managed Kernel API auth — so `KERNEL_API_KEY` never enters the VM. A clean example of the credential-proxy pattern.
-- [HofmeisterAn/docker-sandbox-kit](https://github.com/HofmeisterAn/docker-sandbox-kit) — Minimal kit running the GitHub Copilot agent with .NET SDK 10 pre-installed. The host’s `GH_TOKEN` is injected by the sandbox proxy at request time. Loadable directly via `git+https://` reference.
-- [shelajev/agy-sbx-kit](https://github.com/shelajev/agy-sbx-kit) — Kit for running Google’s Antigravity CLI (`agy`) in an isolated sandbox. By a Docker DevRel.
+- [HofmeisterAn/docker-sandbox-kit](https://github.com/HofmeisterAn/docker-sandbox-kit) — Minimal kit running the GitHub Copilot agent with .NET SDK 10 pre-installed. The host's `GH_TOKEN` is injected by the sandbox proxy at request time. Loadable directly via `git+https://` reference.
+- [shelajev/agy-sbx-kit](https://github.com/shelajev/agy-sbx-kit) — Kit for running Google's Antigravity CLI (`agy`) in an isolated sandbox. By a Docker DevRel.
 - [shelajev/vibe-sbx-kit](https://github.com/shelajev/vibe-sbx-kit) — Kit for running Mistral Vibe with `MISTRAL_API_KEY` injected via the host proxy.
 - [shelajev/tessl-sbx-kit](https://github.com/shelajev/tessl-sbx-kit) — Kit that installs the Tessl CLI and injects credentials via the proxy.
 - [shelajev/little-coder-sbx-kit](https://github.com/shelajev/little-coder-sbx-kit) — Kit for running little-coder with Docker Model Runner.
@@ -67,7 +76,7 @@ Reusable [template](https://docs.docker.com/ai/sandboxes/customize/templates/) i
 - [nicmeriano/claude-sandbox-template](https://github.com/nicmeriano/claude-sandbox-template) — Custom Claude Code template that brings your global config (skills, statusline, etc.) into the sandbox.
 - [holbora/dockbox](https://github.com/holbora/dockbox) — Docker sandbox template with MCP Gateway for Claude Code.
 - [VeryEvilHumna/claude-bun-docker-sandbox](https://github.com/VeryEvilHumna/claude-bun-docker-sandbox) — Claude template with the Bun runtime preinstalled.
-- [ealeyner/nanoclaw-sbx-template](https://github.com/ealeyner/nanoclaw-sbx-template) — Template that pre-bakes NanoClaw’s prerequisites (Node, pnpm, build tools).
+- [ealeyner/nanoclaw-sbx-template](https://github.com/ealeyner/nanoclaw-sbx-template) — Template that pre-bakes NanoClaw's prerequisites (Node, pnpm, build tools).
 - [codingforentrepreneurs/opencode-ollama-sbx-template](https://github.com/codingforentrepreneurs/opencode-ollama-sbx-template) — Template for OpenCode + Ollama.
 - [travishathaway/docker-sandbox-claude-code-bedrock](https://github.com/travishathaway/docker-sandbox-claude-code-bedrock) — Image for running Claude Code with Amazon Bedrock inside a sandbox.
 - [travishathaway/docker-sandbox-opencode-bedrock](https://github.com/travishathaway/docker-sandbox-opencode-bedrock) — Image for running OpenCode with Amazon Bedrock inside a sandbox.
@@ -99,10 +108,10 @@ Personal and project setups focused on a particular agent or environment.
 
 ## Security & Demos
 
-Projects exploring the security boundary, threat models, and isolation guarantees of `sbx` — relevant given the product’s core purpose.
+Projects exploring the security boundary, threat models, and isolation guarantees of `sbx` — relevant given the product's core purpose.
 
 - [zickgraf-ai/agentic-press](https://github.com/zickgraf-ai/agentic-press) — Reference architecture for secure agentic AI development: MCP injection filtering, audit logging, and more.
-- [kiview/you-gotta-keep-the-dogs-away](https://github.com/kiview/you-gotta-keep-the-dogs-away) — Demo code for the JCon 2026 talk “You Gotta Keep the Dogs Away” — sandboxing a malicious MCP server.
+- [kiview/you-gotta-keep-the-dogs-away](https://github.com/kiview/you-gotta-keep-the-dogs-away) — Demo code for the JCon 2026 talk "You Gotta Keep the Dogs Away" — sandboxing a malicious MCP server.
 - [sebbmn/secure-hermes-sandbox](https://github.com/sebbmn/secure-hermes-sandbox) — Hermes agent in `sbx` with a web-search proxy sanitizer and Firecrawl.
 
 ## Guides & Tutorials
@@ -122,26 +131,33 @@ Opinion, analysis, and hands-on reports.
 - [Stop Running Agents in Containers. Run Them in MicroVMs with Docker sbx](https://www.ajeetraina.com/stop-running-agents-in-containers-run-them-in-microvms-with-docker-sbx/) — A hands-on tour of the full `sbx` experience: install, auth, shell sandbox, Claude Code sandbox, and port publishing, focused on the container-vs-microVM trust boundary.
 - [Docker Sandboxes: Running AI Agents in YOLO Mode, Safely](https://www.msbiro.net/posts/docker-sandboxes-ai-agents/) — Matteo Bisi installs, breaks, fixes, and runs GitHub Copilot CLI inside a sandbox on an M4 MacBook — verifying the security claims hands-on, including real-world policy workarounds.
 - [Running AI agents safely in a microVM using Docker sandbox](https://andrewlock.net/running-ai-agents-safely-in-a-microvm-using-docker-sandbox/) — Andrew Lock on network policies, direct vs. branch git modes, and the practical implications of `--dangerously-skip-permissions`.
-- [Docker Sandboxes (sbx) Quick Start](https://pageai.pro/blog/docker-sandboxes-sbx-quick-start) — The three workflow patterns that separate “tried it once” from “use it daily,” including non-interactive prompt runs.
+- [Docker Sandboxes (sbx) Quick Start](https://pageai.pro/blog/docker-sandboxes-sbx-quick-start) — The three workflow patterns that separate "tried it once" from "use it daily," including non-interactive prompt runs.
 
 ## Background & Comparisons
 
 Context on the architecture and how `sbx` compares to alternatives.
 
-- [Architecture | Docker Docs](https://docs.docker.com/ai/sandboxes/architecture/) — How sandboxes work under the hood: microVM isolation, workspace mounting via filesystem passthrough, storage, networking, and lifecycle.
-- [Docker Sandbox: Running AI Agents in Isolated Docker Environments](https://www.morphllm.com/docker-sandbox) — A technical comparison of container isolation vs. `sbx`’s microVM model, the four-layer security model, and how managed sandbox APIs compare on cold start, persistence, and pricing.
+- [Architecture | Docker Docs](https://docs.docker.com/ai/sandboxes/architecture/) ~ How sandboxes work under the hood: microVM isolation, workspace mounting via filesystem passthrough, storage, networking, and lifecycle.
+- [Docker Sandbox: Running AI Agents in Isolated Docker Environments](https://www.morphllm.com/docker-sandbox) ~ A technical comparison of container isolation vs. `sbx`'s microVM model, the four-layer security model, and how managed sandbox APIs compare on cold start, persistence, and pricing.
+
+## Recently discovered (auto-added, unreviewed)
+
+> [!WARNING]
+> Entries below were added automatically by the [sbx Curator agent](./workflow/auto-curator-agent/sbx-curator.yaml) and have **not** been human-reviewed. They may be miscategorized, abandoned, or out of scope. A maintainer promotes good ones into the curated sections above and deletes the rest. Treat this section as a discovery queue, not a recommendation.
+
+_No unreviewed entries yet ~ the curator agent appends here on its scheduled runs._
 
 ## Contributing
 
 Contributions are welcome! To suggest an addition:
 
 1. Make sure the entry is genuinely related to Docker Sandboxes (`sbx`) — not other sandbox products (e.g. E2B, Blaxel).
-1. Add it to the most relevant section, keeping the one-line format: `[name](url) — what it is and why it's useful.`
-1. For tools, kits, and templates, note maturity honestly (e.g. experimental, no releases) so readers can judge for themselves.
-1. Keep descriptions neutral and factual; this is a reference, not a marketing page.
+2. Add it to the most relevant section, keeping the one-line format: `[name](url) — what it is and why it's useful.`
+3. For tools, kits, and templates, note maturity honestly (e.g. experimental, no releases) so readers can judge for themselves.
+4. Keep descriptions neutral and factual; this is a reference, not a marketing page.
 
 Open a pull request or an issue with the link and a short description.
 
------
+---
 
 *Maintained by the [Collabnix](https://collabnix.com) community. Docker Sandboxes, `sbx`, and related marks are trademarks of Docker, Inc. This list is independent and not affiliated with Docker.*
