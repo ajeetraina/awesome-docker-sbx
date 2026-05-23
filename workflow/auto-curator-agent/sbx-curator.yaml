@@ -9,7 +9,7 @@ models:
   nemotron:
     provider: openai
     model: nvidia/nemotron-3-super-120b-a12b
-    base_url: https://integrate.api.nvidia.com
+    base_url: https://integrate.api.nvidia.com/v1
 
 metadata:
   author: Collabnix
