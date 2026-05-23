@@ -1,0 +1,103 @@
+name: sbx Auto Curator
+
+on:
+  # Run every day at 9am UTC
+  schedule:
+    - cron: "0 9 * * *"
+
+  # Allow manual trigger with custom prompt
+  workflow_dispatch:
+    inputs:
+      prompt:
+        description: "Curator prompt to run"
+        required: false
+        default: "Find new Docker Sandboxes (sbx) repositories from the last week and auto-commit them to the unreviewed section so that folks can see the agent is managing the repo"
+        type: string
+      task:
+        description: "Curator task"
+        required: false
+        default: "discover"
+        type: choice
+        options:
+          - discover
+          - validate-links
+          - discover-kits
+          - discover-templates
+
+jobs:
+  curate:
+    name: Run sbx Curator Agent
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create agent-bot label (if missing)
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          gh label create "agent-bot" \
+            --description "Commits and PRs raised automatically by the sbx curator agent" \
+            --color "0075ca" \
+            --repo "${{ github.repository }}" \
+          || echo "Label already exists, skipping."
+
+      - name: Install Docker Agent
+        run: |
+          # Download the latest Docker Agent Linux binary
+          curl -L -o /tmp/docker-agent https://github.com/docker/docker-agent/releases/latest/download/docker-agent-linux-amd64
+
+          # Install as a Docker CLI plugin
+          mkdir -p ~/.docker/cli-plugins
+          mv /tmp/docker-agent ~/.docker/cli-plugins/docker-agent
+
+          # Make it executable
+          chmod +x ~/.docker/cli-plugins/docker-agent
+          docker agent --help
+
+      - name: Configure git for agent commits
+        run: |
+          git config user.name "sbx-curator-bot"
+          git config user.email "sbx-curator-bot@users.noreply.github.com"
+
+      - name: Set curator prompt
+        id: prompt
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            PROMPT="${{ github.event.inputs.prompt }}"
+          else
+            # Default scheduled prompt — always appends to the unreviewed
+            # section and auto-commits so contributors can see the agent
+            # is managing the repo.
+            PROMPT="Find new Docker Sandboxes (sbx) repositories and resources published in the last 7 days. For each genuine new entry, append it to the 'Recently discovered (auto-added, unreviewed)' section of README.md with a one-line description and a security/maturity flag, then commit directly to main with a message prefixed 'chore(curator):' so folks can see the agent is managing the repo."
+          fi
+          echo "prompt=${PROMPT}" >> $GITHUB_OUTPUT
+
+      - name: Run sbx Curator Agent
+        env:
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          docker agent run ./auto-curator-agent/sbx-curator.yaml \
+            "${{ steps.prompt.outputs.prompt }}"
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## sbx Curator Run" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Trigger**: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Prompt**: ${{ steps.prompt.outputs.prompt }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Mode**: auto-commit to the unreviewed section (label: agent-bot)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Auto-added entries land in the **Recently discovered (auto-added, unreviewed)**" >> $GITHUB_STEP_SUMMARY
+          echo "section of the README. Promote them into the curated sections after a human review." >> $GITHUB_STEP_SUMMARY
+          echo "Commits by the agent use the \`chore(curator):\` prefix and are visible in the" >> $GITHUB_STEP_SUMMARY
+          echo "[commit history](https://github.com/${{ github.repository }}/commits/main)." >> $GITHUB_STEP_SUMMARY
