@@ -78,10 +78,14 @@ agents:
       ## What counts as in-scope
       Repositories, kits, templates, wrappers, articles, or demos that are
       specifically about Docker Sandboxes (the `sbx` CLI / microVM product).
-      Use the GitHub search tools (from the github MCP server) to query repos
-      with terms like: "docker sandboxes sbx", "sbx kit", "sbx template",
-      "docker-sbx", "sbx claude code microvm". Sort by recently updated.
-      Use duckduckgo only for blogs/articles, not repo discovery.
+      Use the `gh` CLI (already authenticated via GH_TOKEN) for discovery —
+      e.g. `gh search repos "docker sandboxes sbx" --sort updated --limit 50
+      --json fullName,url,description,stargazersCount,updatedAt`. Run several
+      queries with terms like: "docker sandboxes sbx", "sbx kit", "sbx
+      template", "docker-sbx", "sbx claude code". Compute the cutoff date
+      dynamically with `date -d '7 days ago' +%Y-%m-%d` (do NOT hardcode a
+      date). Prefer `gh search` over raw curl to the API (curl without auth is
+      rate-limited and returns empty). Use duckduckgo only for blogs/articles.
 
       ## Hard exclusions (never add these)
       - Other sandbox products: E2B, Blaxel, Daytona, Modal, Firecracker-only
