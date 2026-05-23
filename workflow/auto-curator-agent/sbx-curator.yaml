@@ -8,8 +8,10 @@ models:
   # Verify the model slug is current on build.nvidia.com.
   nemotron:
     provider: openai
-    model: nvidia/nemotron-3-super-120b-a12b 
+    model: nvidia/nemotron-3-super-120b-a12b
     base_url: https://integrate.api.nvidia.com
+
+metadata:
   author: Collabnix
   license: MIT
   readme: |
