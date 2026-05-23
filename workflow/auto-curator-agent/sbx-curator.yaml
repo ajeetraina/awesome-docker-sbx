@@ -1,6 +1,17 @@
 #!/usr/bin/env docker agent run
 version: "2"
 
+models:
+  # NVIDIA build.nvidia.com endpoint is OpenAI-compatible. We map the
+  # repo's NVIDIA_API_KEY secret into OPENAI_API_KEY, which this provider
+  # uses for auth. Verify the model slug is current on build.nvidia.com.
+  nemotron:
+    provider: openai
+    model: nvidia/llama-3.1-nemotron-ultra-253b-v1
+    base_url: https://integrate.api.nvidia.com/v1
+    env:
+      OPENAI_API_KEY: ${NVIDIA_API_KEY}
+
 metadata:
   author: Collabnix
   license: MIT
@@ -17,24 +28,50 @@ metadata:
 
 agents:
   root:
-    # Nemotron Ultra for reasoning/judgment, consistent with the
-    # Collabnix awesome-* curator family. Swap to anthropic/claude-sonnet-4-5
-    # if you prefer (ANTHROPIC_API_KEY is wired in the workflow).
-    model: nvidia/llama-3.1-nemotron-ultra-253b-v1
+    # NVIDIA's API is OpenAI-compatible, so it is declared as a custom
+    # "openai" provider via the models block below (there is no built-in
+    # "nvidia" provider). Free to use with an NVIDIA build.nvidia.com key.
+    model: nemotron
     description: >
       Discovers and triages new Docker Sandboxes (sbx) projects, then
       auto-commits vetted candidates to the README's unreviewed section.
     toolsets:
-      # Web/repo search via the Docker MCP Gateway (duckduckgo for general
-      # discovery; brave/github servers can be added to the gateway too).
+      # Discovery via the Docker MCP Gateway. The GitHub server gives the
+      # agent the GitHub search API directly (far more reliable for finding
+      # new repos than web search); duckduckgo covers blogs/articles.
+      # The GitHub server reads GITHUB_PERSONAL_ACCESS_TOKEN from the env
+      # (wired in the workflow as the GH_PAT secret).
       - type: mcp
         command: docker
-        args: ["mcp", "gateway", "run", "--servers=duckduckgo"]
+        args: ["mcp", "gateway", "run", "--servers=github,duckduckgo"]
       # Read and edit the README in the checked-out repo.
       - type: filesystem
-      # Run git/gh and the GitHub search API for discovery + commit.
+      # Run git/gh and HTTP checks for discovery, link validation, and commit.
       - type: shell
     instruction: |
+      ## Two modes of operation
+      Read the prompt to decide which task you are running:
+
+      ### Mode A — DISCOVER (default)
+      Find NEW sbx-related projects, judge them, and append the good ones to
+      the quarantined section. This is the workflow described below.
+
+      ### Mode B — VALIDATE-LINKS
+      If the prompt asks you to validate or check links, do NOT discover new
+      entries. Instead:
+      1. Read README.md and extract every URL across all sections.
+      2. For each, issue an HTTP request (e.g. `curl -sIL -o /dev/null -w "%{http_code}" <url>`)
+         and record the final status code.
+      3. Build a short report of any links returning 404/410/5xx or that have
+         clearly moved (repo renamed, archived, or deleted).
+      4. Do NOT delete or rewrite curated entries automatically — link removal
+         is a human curation decision. Instead, append a dated
+         "Link check — <YYYY-MM-DD>" note under the unreviewed section listing
+         the broken links, and commit with message
+         `chore(curator): link check <date>`.
+      Then stop.
+
+      ## DISCOVER workflow
       You are the sbx Curator for an "Awesome Docker Sandboxes (sbx)" list.
       Your job is to find NEW sbx-related projects and resources, judge them,
       and append the good ones to a quarantined section of README.md.
@@ -42,8 +79,10 @@ agents:
       ## What counts as in-scope
       Repositories, kits, templates, wrappers, articles, or demos that are
       specifically about Docker Sandboxes (the `sbx` CLI / microVM product).
-      Search GitHub and the web using terms like: "docker sandboxes sbx",
-      "sbx kit", "sbx template", "docker-sbx", "sbx claude code microvm".
+      Use the GitHub search tools (from the github MCP server) to query repos
+      with terms like: "docker sandboxes sbx", "sbx kit", "sbx template",
+      "docker-sbx", "sbx claude code microvm". Sort by recently updated.
+      Use duckduckgo only for blogs/articles, not repo discovery.
 
       ## Hard exclusions (never add these)
       - Other sandbox products: E2B, Blaxel, Daytona, Modal, Firecracker-only
