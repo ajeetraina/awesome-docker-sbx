@@ -2,15 +2,14 @@
 version: "2"
 
 models:
-  # NVIDIA build.nvidia.com endpoint is OpenAI-compatible. We map the
-  # repo's NVIDIA_API_KEY secret into OPENAI_API_KEY, which this provider
-  # uses for auth. Verify the model slug is current on build.nvidia.com.
+  # NVIDIA build.nvidia.com endpoint is OpenAI-compatible. The openai
+  # provider authenticates from the OPENAI_API_KEY env var, which the
+  # workflow sets to the repo's NVIDIA_API_KEY secret value.
+  # Verify the model slug is current on build.nvidia.com.
   nemotron:
     provider: openai
     model: nvidia/llama-3.1-nemotron-ultra-253b-v1
     base_url: https://integrate.api.nvidia.com/v1
-    env:
-      OPENAI_API_KEY: ${NVIDIA_API_KEY}
 
 metadata:
   author: Collabnix
