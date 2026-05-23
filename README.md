@@ -13,6 +13,7 @@
 - [Wrappers & CLIs](#wrappers--clis)
 - [Kits](#kits)
 - [Templates & Images](#templates--images)
+- [GUIs & Dashboards](#guis--dashboards)
 - [Agent-Specific Setups](#agent-specific-setups)
 - [Security & Demos](#security--demos)
 - [Guides & Tutorials](#guides--tutorials)
