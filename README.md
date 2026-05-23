@@ -9,11 +9,11 @@
 
 ## How this list is maintained
 
-This list is **human-curated, with an AI agent assisting discovery.** A [Docker Agent](./workflow/auto-curator-agent/sbx-curator.yaml) (the `sbx` Curator) runs on a schedule via [GitHub Actions](./.github/workflows/sbx-auto-curator.yml). It searches GitHub and the web for new `sbx`-related projects, judges each candidate for relevance, maturity, and credential-handling/security posture, and proposes additions to a separate **unreviewed** queue. A human reviews those before anything is promoted into the curated sections above.
+This list is **human-curated, with an AI agent assisting discovery.** A [Docker Agent](./workflow/auto-curator-agent/sbx-curator.yaml) (the `sbx` Curator) runs on a schedule via [GitHub Actions](./.github/workflows/sbx-auto-curator.yml). It searches both **GitHub** (repos, kits, templates, via the GitHub search API) and the **wider web** (blog posts, tutorials, articles, and other write-ups, via web search) for new `sbx`-related material, judges each candidate for relevance, maturity, and credential-handling/security posture, and proposes additions to a separate **unreviewed** queue. A human reviews those before anything is promoted into the curated sections above.
 
 The agent is deliberately scoped so it can only append to the unreviewed queue — it never edits the hand-curated entries. Final categorization, wording, and inclusion are human decisions. Contributions from people (issues and PRs) are equally welcome and reviewed the same way.
 
-The curator itself is built with [Docker Agent](https://docs.docker.com/ai/cagent/) and a [Nemotron](https://build.nvidia.com) model ~ a small, fitting example of the kind of agent tooling this list catalogs.
+The curator itself is built with [Docker Agent](https://docs.docker.com/ai/cagent/) and a [Nemotron](https://build.nvidia.com) model — a small, fitting example of the kind of agent tooling this list catalogs.
 
 ## Contents
 
@@ -137,15 +137,15 @@ Opinion, analysis, and hands-on reports.
 
 Context on the architecture and how `sbx` compares to alternatives.
 
-- [Architecture | Docker Docs](https://docs.docker.com/ai/sandboxes/architecture/) ~ How sandboxes work under the hood: microVM isolation, workspace mounting via filesystem passthrough, storage, networking, and lifecycle.
-- [Docker Sandbox: Running AI Agents in Isolated Docker Environments](https://www.morphllm.com/docker-sandbox) ~ A technical comparison of container isolation vs. `sbx`'s microVM model, the four-layer security model, and how managed sandbox APIs compare on cold start, persistence, and pricing.
+- [Architecture | Docker Docs](https://docs.docker.com/ai/sandboxes/architecture/) — How sandboxes work under the hood: microVM isolation, workspace mounting via filesystem passthrough, storage, networking, and lifecycle.
+- [Docker Sandbox: Running AI Agents in Isolated Docker Environments](https://www.morphllm.com/docker-sandbox) — A technical comparison of container isolation vs. `sbx`'s microVM model, the four-layer security model, and how managed sandbox APIs compare on cold start, persistence, and pricing.
 
 ## Recently discovered (auto-added, unreviewed)
 
 > [!WARNING]
 > Entries below were added automatically by the [sbx Curator agent](./workflow/auto-curator-agent/sbx-curator.yaml) and have **not** been human-reviewed. They may be miscategorized, abandoned, or out of scope. A maintainer promotes good ones into the curated sections above and deletes the rest. Treat this section as a discovery queue, not a recommendation.
 
-_No unreviewed entries yet ~ the curator agent appends here on its scheduled runs._
+_No unreviewed entries yet — the curator agent appends here on its scheduled runs._
 
 ## Contributing
 
