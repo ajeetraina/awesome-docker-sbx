@@ -13,7 +13,7 @@ This list is **human-curated, with an AI agent assisting discovery.** A [Docker 
 
 The agent is deliberately scoped so it can only append to the unreviewed queue — it never edits the hand-curated entries. Final categorization, wording, and inclusion are human decisions. Contributions from people (issues and PRs) are equally welcome and reviewed the same way.
 
-The curator itself is built with [Docker Agent](https://docs.docker.com/ai/cagent/) and a [Nemotron](https://build.nvidia.com) model — a small, fitting example of the kind of agent tooling this list catalogs.
+The curator itself is built with [Docker Agent](https://docs.docker.com/ai/cagent/) and a [Nemotron](https://build.nvidia.com) model ~ a small, fitting example of the kind of agent tooling this list catalogs.
 
 ## Contents
 
