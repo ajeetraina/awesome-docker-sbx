@@ -152,6 +152,4 @@ Contributions are welcome! To suggest an addition:
 
 Open a pull request or an issue with the link and a short description.
 
----
 
-*Maintained by the [Collabnix](https://collabnix.com) community. Docker Sandboxes, `sbx`, and related marks are trademarks of Docker, Inc. This list is independent and not affiliated with Docker.*
