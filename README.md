@@ -140,12 +140,6 @@ Context on the architecture and how `sbx` compares to alternatives.
 - [Architecture | Docker Docs](https://docs.docker.com/ai/sandboxes/architecture/) — How sandboxes work under the hood: microVM isolation, workspace mounting via filesystem passthrough, storage, networking, and lifecycle.
 - [Docker Sandbox: Running AI Agents in Isolated Docker Environments](https://www.morphllm.com/docker-sandbox) — A technical comparison of container isolation vs. `sbx`'s microVM model, the four-layer security model, and how managed sandbox APIs compare on cold start, persistence, and pricing.
 
-## Recently discovered (auto-added, unreviewed)
-
-> [!WARNING]
-> Entries below were added automatically by the [sbx Curator agent](./workflow/auto-curator-agent/sbx-curator.yaml) and have **not** been human-reviewed. They may be miscategorized, abandoned, or out of scope. A maintainer promotes good ones into the curated sections above and deletes the rest. Treat this section as a discovery queue, not a recommendation.
-
-_No unreviewed entries yet — the curator agent appends here on its scheduled runs._
 
 ## Contributing
 
