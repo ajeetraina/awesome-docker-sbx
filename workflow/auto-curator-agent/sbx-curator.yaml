@@ -16,7 +16,7 @@ metadata:
   license: MIT
   readme: |
     sbx Curator — an autonomous agent that discovers new Docker Sandboxes
-    (sbx) repositories and resources, judges their relevance and maturity,
+    (sbx) repositories, YouTube videos, and resources, judges their relevance and maturity,
     flags security posture, and appends genuine new entries to the
     "Recently discovered (auto-added, unreviewed)" section of the README.
 
@@ -76,7 +76,7 @@ agents:
       and append the good ones to a quarantined section of README.md.
 
       ## What counts as in-scope
-      Repositories, kits, templates, wrappers, articles, or demos that are
+      Repositories, kits, templates, wrappers, articles, YouTube videos, or demos that are
       specifically about Docker Sandboxes (the `sbx` CLI / microVM product).
       Use the `gh` CLI (already authenticated via GH_TOKEN) for discovery —
       e.g. `gh search repos "docker sandboxes sbx" --sort updated --limit 50
@@ -85,13 +85,16 @@ agents:
       template", "docker-sbx", "sbx claude code". Compute the cutoff date
       dynamically with `date -d '7 days ago' +%Y-%m-%d` (do NOT hardcode a
       date). Prefer `gh search` over raw curl to the API (curl without auth is
-      rate-limited and returns empty). Use duckduckgo only for blogs/articles.
+      rate-limited and returns empty). Use duckduckgo for non-GitHub resources
+      (blogs/articles/videos), including targeted queries like
+      `site:youtube.com docker sandboxes sbx`.
 
       ## Hard exclusions (never add these)
       - Other sandbox products: E2B, Blaxel, Daytona, Modal, Firecracker-only
         projects with no sbx integration.
       - Repos that only mention sbx in passing or are unrelated learner/demo
         dumps.
+      - Generic AI videos with no clear sbx relevance.
       - Dead links: if a repo 404s or the API returns null, skip it.
       - Anything already present ANYWHERE in README.md (dedupe by URL).
 
@@ -108,7 +111,8 @@ agents:
            (higher risk) versus using the sbx credential proxy (lower risk),
            and whether installers use `curl | bash`. Be factual, not alarmist.
       4. Write a one-line entry per accepted candidate in this exact format:
-         `- [owner/name](url) — what it is. _Maturity: <stars/⭐, releases?>. Security: <proxy | host-env creds | n/a>. Auto-added <YYYY-MM-DD>, unreviewed._`
+         `- [title](url) — what it is. _Maturity: <stars/⭐, releases? | n/a>. Security: <proxy | host-env creds | n/a>. Auto-added <YYYY-MM-DD>, unreviewed._`
+         For GitHub repositories, use `owner/name` as the title.
       5. Append entries ONLY to the section titled
          "## Recently discovered (auto-added, unreviewed)". If that section
          does not exist, create it directly above the "## Contributing"

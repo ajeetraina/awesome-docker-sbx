@@ -26,6 +26,8 @@ The curator itself is built with [Docker Agent](https://docs.docker.com/ai/cagen
 - [Security & Demos](#security--demos)
 - [Guides & Tutorials](#guides--tutorials)
 - [Articles & Deep Dives](#articles--deep-dives)
+- [YouTube Videos](#youtube-videos)
+- [Docker Sandboxes Related Stuff](#docker-sandboxes-related-stuff)
 - [Background & Comparisons](#background--comparisons)
 - [Recently discovered (auto-added, unreviewed)](#recently-discovered-auto-added-unreviewed)
 - [Contributing](#contributing)
@@ -133,6 +135,20 @@ Opinion, analysis, and hands-on reports.
 - [Running AI agents safely in a microVM using Docker sandbox](https://andrewlock.net/running-ai-agents-safely-in-a-microvm-using-docker-sandbox/) — Andrew Lock on network policies, direct vs. branch git modes, and the practical implications of `--dangerously-skip-permissions`.
 - [Docker Sandboxes (sbx) Quick Start](https://pageai.pro/blog/docker-sandboxes-sbx-quick-start) — The three workflow patterns that separate "tried it once" from "use it daily," including non-interactive prompt runs.
 
+## YouTube Videos
+
+Videos and channel searches focused on `sbx`, Docker Sandboxes workflows, and sandboxed agent setups.
+
+- [YouTube search: Docker Sandboxes sbx](https://www.youtube.com/results?search_query=docker+sandboxes+sbx) — Ongoing stream of community demos, walkthroughs, and talks.
+- [YouTube search: Docker sandbox AI agents](https://www.youtube.com/results?search_query=docker+sandbox+ai+agents) — Hands-on videos about running coding agents in isolated environments.
+
+## Docker Sandboxes Related Stuff
+
+Adjacent Docker resources that are commonly used together with Docker Sandboxes.
+
+- [Docker AI docs](https://docs.docker.com/ai/) — Entry point for Docker AI tooling, including Sandboxes, Agent, and related workflows.
+- [Docker Agent docs](https://docs.docker.com/ai/cagent/) — Documentation for the Docker Agent used to automate discovery and curation tasks.
+
 ## Background & Comparisons
 
 Context on the architecture and how `sbx` compares to alternatives.
@@ -140,6 +156,11 @@ Context on the architecture and how `sbx` compares to alternatives.
 - [Architecture | Docker Docs](https://docs.docker.com/ai/sandboxes/architecture/) — How sandboxes work under the hood: microVM isolation, workspace mounting via filesystem passthrough, storage, networking, and lifecycle.
 - [Docker Sandbox: Running AI Agents in Isolated Docker Environments](https://www.morphllm.com/docker-sandbox) — A technical comparison of container isolation vs. `sbx`'s microVM model, the four-layer security model, and how managed sandbox APIs compare on cold start, persistence, and pricing.
 
+## Recently discovered (auto-added, unreviewed)
+
+New entries discovered by the curator agent are auto-appended here for human review before promotion into curated sections.
+
+- _No unreviewed entries yet._
 
 ## Contributing
 
@@ -151,5 +172,4 @@ Contributions are welcome! To suggest an addition:
 4. Keep descriptions neutral and factual; this is a reference, not a marketing page.
 
 Open a pull request or an issue with the link and a short description.
-
 
