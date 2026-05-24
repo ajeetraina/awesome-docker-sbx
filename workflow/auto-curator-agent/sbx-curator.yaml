@@ -37,7 +37,7 @@ agents:
     toolsets:
       # Discovery via the Docker MCP Gateway. The GitHub server gives the
       # agent the GitHub search API directly (far more reliable for finding
-      # new repos than web search); duckduckgo covers blogs/articles.
+      # new repos than web search); duckduckgo covers blogs/articles/videos.
       # The GitHub server reads GITHUB_PERSONAL_ACCESS_TOKEN from the env
       # (wired in the workflow as the GH_PAT secret).
       - type: mcp
