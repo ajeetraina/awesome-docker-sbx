@@ -148,6 +148,8 @@ Context on the architecture and how `sbx` compares to alternatives.
 - [AlekseiKanash/bal-sbx](https://github.com/AlekseiKanash/bal-sbx) — Sandboxing tools for LLM agents. _Maturity: 0⭐, no releases. Security: host-env creds. Auto-added 2026-05-25, unreviewed._
 
 ## Contributing
+- [ajeetraina/awesome-docker-sbx](https://github.com/ajeetraina/awesome-docker-sbx) — A curated list of tools, kits, templates, integrations, and resources for Docker Sandboxes (sbx) running AI coding agents in isolated microVMs. _Maturity: 2⭐, no releases. Security: n/a. Auto-added 2026-05-29, unreviewed._
+- [shelajev/labspace-demo-sbx-kits-dhi](https://github.com/shelajev/labspace-demo-sbx-kits-dhi) — Labspace wrapper for the SBX kits DHI demo. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-05-29, unreviewed._
 
 Contributions are welcome! To suggest an addition:
 
