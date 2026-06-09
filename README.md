@@ -167,6 +167,9 @@ Context on the architecture and how `sbx` compares to alternatives.
 - [typisttech/sbx-kits](https://github.com/typisttech/sbx-kits) — . _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-05-30, unreviewed._
 - [ajeetraina/awesome-docker-sbx](https://github.com/ajeetraina/awesome-docker-sbx) — A curated list of tools, kits, templates, integrations, and resources for Docker Sandboxes (sbx) running AI coding agents in isolated microVMs. _Maturity: 2⭐, no releases. Security: n/a. Auto-added 2026-05-29, unreviewed._
 - [shelajev/labspace-demo-sbx-kits-dhi](https://github.com/shelajev/labspace-demo-sbx-kits-dhi) — Labspace wrapper for the SBX kits DHI demo. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-05-29, unreviewed._
+- [protyposis/sbx-kits](https://github.com/protyposis/sbx-kits) — A collection of kits for Docker Sandbox. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-06-09, unreviewed._
+- [natesilva/sbx-kit-npm-pnpm-hardening](https://github.com/natesilva/sbx-kit-npm-pnpm-hardening) — Docker Sandboxes mixin kit that hardens npm and pnpm against supply-chain attacks by blocking install scripts and enforcing a 7-day release age gate. _Maturity: 0⭐, no releases. Security: supply-chain hardening. Auto-added 2026-06-09, unreviewed._
+- [cuolm/pi-sbx-llamacpp](https://github.com/cuolm/pi-sbx-llamacpp) — Run Pi coding agent isolated in a Docker Sandbox microVM with a local llama-server as the inference backend (llama.cpp). _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-06-09, unreviewed._
 
 Contributions are welcome! To suggest an addition:
 
