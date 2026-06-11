@@ -17,7 +17,7 @@
 -  🔑 **Credential proxy** 
 -  🚀 **One-command setup**
 
-> **Quick start:** `brew install docker/tap/sbx && sbx run claude` — your agent runs in a fully isolated microVM in seconds.
+> **Quick start:** `brew install docker/tap/sbx && sbx run claude` - your agent runs in a fully isolated microVM in seconds.
 
 
 > [!NOTE]
