@@ -4,13 +4,16 @@
 
 [Docker Sandboxes](https://www.docker.com/products/docker-sandboxes/) is a standalone CLI (`sbx`) that runs AI coding agents like Claude Code, Codex, Gemini CLI, Copilot CLI, OpenCode, and Kiro inside isolated **microVMs** each with its own kernel, Docker daemon, filesystem, and network. The agent can build images, install packages, and modify files in full autonomy without ever touching the host. This list tracks how the community is using, extending, and building on top of `sbx`.
 
----
 
-🔒 **microVM isolation** · 🤖 **Multi-agent support** · 🔌 **Kits & templates** · 🌐 **Network governance** · 🔑 **Credential proxy** · 🚀 **One-command setup**
+-  🔒 **microVM isolation** 
+-  🤖 **Multi-agent support** 
+-  🔌 **Kits & templates** 
+-  🌐 **Network governance** 
+-  🔑 **Credential proxy** 
+-  🚀 **One-command setup**
 
 > **Quick start:** `brew install docker/tap/sbx && sbx run claude` — your agent runs in a fully isolated microVM in seconds.
 
----
 
 > [!NOTE]
 > This is a community-maintained list and is **not affiliated with or endorsed by Docker**. Many entries are early-stage and experimental — most are personal or demo repositories with few or no stars. Inclusion here is **not** an endorsement; check each project's own status, license, and security posture before use. Contributions and corrections welcome (see [Contributing](#contributing)).
