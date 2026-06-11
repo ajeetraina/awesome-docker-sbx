@@ -145,6 +145,7 @@ Opinion, analysis, and hands-on reports.
 ### Docker Official Blog
 
 - [A New Approach for Coding Agent Safety](https://www.docker.com/blog/docker-sandboxes-a-new-approach-for-coding-agent-safety/) — Launch post: the problem with running agents in containers vs. microVMs, the four-layer security model, and the roadmap. (Nov 2025)
+- [Highlights from AWS re:Invent: Supercharging Kiro with Docker Sandboxes and MCP Catalog](https://www.docker.com/blog/aws-reinvent-kiro-docker-sandboxes-mcp-catalog/) — How the Kiro agent integrates with `sbx` and the MCP Catalog. By Michael Irwin. (Dec 2025)
 - [Docker Sandboxes: Run Claude Code and Other Coding Agents Unsupervised (but Safely)](https://www.docker.com/blog/docker-sandboxes-run-claude-code-and-other-coding-agents-unsupervised-but-safely/) — Product deep-dive: YOLO mode, the credential proxy pattern, network policies, and git branch mode. (Jan 2026)
 - [Running NanoClaw in a Docker Shell Sandbox](https://www.docker.com/blog/run-nanoclaw-in-docker-shell-sandboxes/) — Walkthrough of running NanoClaw via `sbx shell`, by Oleg Selajev. (Feb 2026)
 - [Run OpenClaw Securely in Docker Sandboxes](https://www.docker.com/blog/run-openclaw-securely-in-docker-sandboxes/) — How to use OpenClaw inside `sbx` with credential isolation. (Feb 2026)
@@ -157,7 +158,6 @@ Opinion, analysis, and hands-on reports.
 - [The Untrusted Autonomous Workload: How AI Coding Agents Reshape What Isolation Has to Do](https://www.docker.com/blog/untrusted-autonomous-workload-ai-sandboxes/) — Docker Captain Vladimir Mikhalev on the threat model of agentic workloads and why process-level isolation isn't enough. (May 2026)
 - [Coding Agent Horror Stories: The rm -rf ~/ Incident](https://www.docker.com/blog/coding-agent-horror-stories-the-rm-rf-incident/) — Second in Ajeet Raina's horror stories series: file-system destruction when agents run without a safety boundary. (Jun 2026)
 - [How to Secure AI Agents: A Practical Overview for Development Teams](https://www.docker.com/blog/how-to-secure-ai-agents/) — Srini Sekaran on the full spectrum of controls: network, credential, filesystem, and process isolation in practice. (Jun 2026)
-- [Highlights from AWS re:Invent: Supercharging Kiro with Docker Sandboxes and MCP Catalog](https://www.docker.com/blog/aws-reinvent-kiro-docker-sandboxes-mcp-catalog/) — How the Kiro agent integrates with `sbx` and the MCP Catalog. By Michael Irwin. (Dec 2025)
 
 ### Community & Independent
 
@@ -200,11 +200,6 @@ Adjacent Docker resources commonly used with Docker Sandboxes.
 - [ThiagoCarmona/claude-pg-devcontainer](https://github.com/ThiagoCarmona/claude-pg-devcontainer) — Dev Container "máquina do Claude": **Claude Code + PostgreSQL embutido + MCPs + toolkit de dev**,. _Maturity: 0⭐, no releases. Security: host-env creds. Auto-added 2026-06-02, unreviewed._
 - [nick22985/sbx](https://github.com/nick22985/sbx) — Sandboxed Docker dev environments. Pick a flavor (npm, bun, rust, java,. _Maturity: 0⭐, 5 release(s). Security: n/a. Auto-added 2026-06-02, unreviewed._
 - [CauldronDevelopmentLLC/sbx](https://github.com/CauldronDevelopmentLLC/sbx) — A tool for easily sandboxing applications in Linux.. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-06-02, unreviewed._
-- [wmeints/sbx-tooling](https://github.com/wmeints/sbx-tooling) — My personal customizations for Docker Sandboxes. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-05-30, unreviewed._
-- [kevbot-git/sandboxd](https://github.com/kevbot-git/sandboxd) — Sandbox'd: A light wrapper over Docker's sbx, with quality of life improvements and a kits manager. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-05-30, unreviewed._
-- [lucatume/sbc](https://github.com/lucatume/sbc) — Docker sbx sandbox system wrapper aimed at Claude Code. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-05-30, unreviewed._
-- [saharshbhansali/docker-sbx-flake](https://github.com/saharshbhansali/docker-sbx-flake) — A flake that packages docker-sandboxes. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-05-30, unreviewed._
-- [typisttech/sbx-kits](https://github.com/typisttech/sbx-kits) — . _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-05-30, unreviewed._
 - [SamirSaidani/sbx-claude-kit](https://github.com/SamirSaidani/sbx-claude-kit) — Docker sbx mixin kit for Claude Code: persistent settings.json + PulseAudio tunnel for audio/voice mode. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-05-30, unreviewed._
 - [kevbot-git/sandbox-kits](https://github.com/kevbot-git/sandbox-kits) — A collection of reusable kits for Docker's `sbx`. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-05-30, unreviewed._
 - [la-test/sbx1-upptime](https://github.com/la-test/sbx1-upptime) — Sandbox to test and learn Upptime template. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-05-30, unreviewed._
