@@ -26,6 +26,7 @@ The curator itself is built with [Docker Agents](https://docs.docker.com/ai/cage
 - [Security & Demos](#security--demos)
 - [Guides & Tutorials](#guides--tutorials)
 - [Articles & Deep Dives](#articles--deep-dives)
+- [Videos & Talks](#videos--talks)
 - [Background & Comparisons](#background--comparisons)
 - [Recently discovered (auto-added, unreviewed)](#recently-discovered-auto-added-unreviewed)
 - [Contributing](#contributing)
@@ -132,6 +133,17 @@ Opinion, analysis, and hands-on reports.
 - [Docker Sandboxes: Running AI Agents in YOLO Mode, Safely](https://www.msbiro.net/posts/docker-sandboxes-ai-agents/) — Matteo Bisi installs, breaks, fixes, and runs GitHub Copilot CLI inside a sandbox on an M4 MacBook — verifying the security claims hands-on, including real-world policy workarounds.
 - [Running AI agents safely in a microVM using Docker sandbox](https://andrewlock.net/running-ai-agents-safely-in-a-microvm-using-docker-sandbox/) — Andrew Lock on network policies, direct vs. branch git modes, and the practical implications of `--dangerously-skip-permissions`.
 - [Docker Sandboxes (sbx) Quick Start](https://pageai.pro/blog/docker-sandboxes-sbx-quick-start) — The three workflow patterns that separate "tried it once" from "use it daily," including non-interactive prompt runs.
+- [How Safe Is Docker Sandbox? Testing AI Agents with Java](https://rabauer.dev/blog/docker-sbx) — Johannes Rabauer and Kevin Wittek (Docker) put `sbx` through its paces against a deliberately vulnerable Java/Maven project designed to leak credentials — covering credential proxying, Docker-in-Docker (Testcontainers), port forwarding, and local LLMs via Docker Model Runner.
+- [Coding Agent Horror Stories: The rm -rf ~/ Incident](https://www.docker.com/blog/coding-agent-horror-stories-the-rm-rf-incident/) — Ajeet Singh Raina on how an AI-generated `rm -rf ~/` wiped a developer's Mac, and how Docker Sandboxes contain destructive agent failures before they reach the host.
+- [The Untrusted Autonomous Workload: How AI Coding Agents Reshape What Isolation Has to Do](https://www.docker.com/blog/untrusted-autonomous-workload-ai-sandboxes/) — Vladimir Mikhalev (Docker Captain) on why containers are the wrong trust boundary for autonomous agents and how `sbx`'s microVM model fits the actual threat model.
+- [How to Secure AI Agents: A Practical Overview for Development Teams](https://www.docker.com/blog/how-to-secure-ai-agents/) — Srini Sekaran on the four pillars of AI agent security: isolation, tool access control, identity management, and runtime monitoring — directly relevant to the `sbx` threat model.
+- [Docker AI Governance: Unlock Agent Autonomy, Safely](https://www.docker.com/blog/docker-ai-governance-unlock-agent-autonomy-safely/) — Introduces Docker AI Governance: centralized, org-wide policy control over agent network access, credentials, and MCP tools inside Docker Sandboxes.
+
+## Videos & Talks
+
+Recorded demos, conference talks, live sessions, and walkthroughs.
+
+- [How Safe Is Docker Sandbox? Testing AI Agents with Java](https://www.youtube.com/watch?v=I-FqemEnUAc) — ~2h live session by Johannes Rabauer and Kevin Wittek (Docker): running a malicious Java/Maven project through `sbx` in YOLO mode, covering credential proxying, Docker-in-Docker (Testcontainers), port forwarding, local LLMs via Docker Model Runner, and `sbx` kits. Apr 2026.
 
 ## Background & Comparisons
 
@@ -146,8 +158,6 @@ Context on the architecture and how `sbx` compares to alternatives.
 - [shelajev/lapdog-sbx-kit](https://github.com/shelajev/lapdog-sbx-kit) — Docker Sandboxes kit that installs Datadog Lapdog and transparently wraps the sandbox's claude binary so every LLM session is captured locally (and optionally forwarded to Datadog LLM Observability).. _Maturity: 0⭐, no releases. Security: proxy. Auto-added 2026-05-25, unreviewed._
 - [kantegamartin/sbx-claude](https://github.com/kantegamartin/sbx-claude) — Containerizing Claude with Docker Sandbox. _Maturity: 0⭐, no releases. Security: proxy. Auto-added 2026-05-25, unreviewed._
 - [AlekseiKanash/bal-sbx](https://github.com/AlekseiKanash/bal-sbx) — Sandboxing tools for LLM agents. _Maturity: 0⭐, no releases. Security: host-env creds. Auto-added 2026-05-25, unreviewed._
-
-## Contributing
 - [ThiagoCarmona/claude-pg-devcontainer](https://github.com/ThiagoCarmona/claude-pg-devcontainer) — Dev Container "máquina do Claude": **Claude Code + PostgreSQL embutido + MCPs + toolkit de dev**,. _Maturity: 0⭐, no releases. Security: host-env creds. Auto-added 2026-06-02, unreviewed._
 - [nick22985/sbx](https://github.com/nick22985/sbx) — Sandboxed Docker dev environments. Pick a flavor (npm, bun, rust, java,. _Maturity: 0⭐, 5 release(s). Security: n/a. Auto-added 2026-06-02, unreviewed._
 - [CauldronDevelopmentLLC/sbx](https://github.com/CauldronDevelopmentLLC/sbx) — A tool for easily sandboxing applications in Linux.. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-06-02, unreviewed._
@@ -160,15 +170,10 @@ Context on the architecture and how `sbx` compares to alternatives.
 - [kevbot-git/sandbox-kits](https://github.com/kevbot-git/sandbox-kits) — A collection of reusable kits for Docker's `sbx`. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-05-30, unreviewed._
 - [la-test/sbx1-upptime](https://github.com/la-test/sbx1-upptime) — Sandbox to test and learn Upptime template. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-05-30, unreviewed._
 - [baby-whales-pod/sbx-claude-code-minio](https://github.com/baby-whales-pod/sbx-claude-code-minio) — . _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-05-30, unreviewed._
-- [wmeints/sbx-tooling](https://github.com/wmeints/sbx-tooling) — My personal customizations for Docker Sandboxes. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-05-30, unreviewed._
-- [kevbot-git/sandboxd](https://github.com/kevbot-git/sandboxd) — Sandbox'd: A light wrapper over Docker's sbx, with quality of life improvements and a kits manager. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-05-30, unreviewed._
-- [lucatume/sbc](https://github.com/lucatume/sbc) — Docker sbx sandbox system wrapper aimed at Claude Code. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-05-30, unreviewed._
-- [saharshbhansali/docker-sbx-flake](https://github.com/saharshbhansali/docker-sbx-flake) — A flake that packages docker-sandboxes. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-05-30, unreviewed._
-- [typisttech/sbx-kits](https://github.com/typisttech/sbx-kits) — . _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-05-30, unreviewed._
 - [ajeetraina/awesome-docker-sbx](https://github.com/ajeetraina/awesome-docker-sbx) — A curated list of tools, kits, templates, integrations, and resources for Docker Sandboxes (sbx) running AI coding agents in isolated microVMs. _Maturity: 2⭐, no releases. Security: n/a. Auto-added 2026-05-29, unreviewed._
 - [shelajev/labspace-demo-sbx-kits-dhi](https://github.com/shelajev/labspace-demo-sbx-kits-dhi) — Labspace wrapper for the SBX kits DHI demo. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-05-29, unreviewed._
 
-Contributions are welcome! To suggest an addition:
+## Contributing
 
 1. Make sure the entry is genuinely related to Docker Sandboxes (`sbx`) — not other sandbox products (e.g. E2B, Blaxel).
 2. Add it to the most relevant section, keeping the one-line format: `[name](url) — what it is and why it's useful.`
