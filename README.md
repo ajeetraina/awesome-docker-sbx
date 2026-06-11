@@ -1,3 +1,8 @@
+![stars](https://img.shields.io/github/stars/ajeetraina/awesome-docker-sbx)
+![Discord](https://img.shields.io/discord/1020180904129335379)
+![Twitter](https://img.shields.io/twitter/follow/collabnix?style=social)
+
+
 # Awesome Docker Sandboxes (sbx) [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
 > A curated list of tools, kits, templates, integrations, and resources for [Docker Sandboxes](https://docs.docker.com/ai/sandboxes/) (`sbx`) — running AI coding agents in isolated microVMs.
