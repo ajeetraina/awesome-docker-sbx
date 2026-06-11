@@ -4,6 +4,14 @@
 
 [Docker Sandboxes](https://www.docker.com/products/docker-sandboxes/) is a standalone CLI (`sbx`) that runs AI coding agents like Claude Code, Codex, Gemini CLI, Copilot CLI, OpenCode, and Kiro inside isolated **microVMs** each with its own kernel, Docker daemon, filesystem, and network. The agent can build images, install packages, and modify files in full autonomy without ever touching the host. This list tracks how the community is using, extending, and building on top of `sbx`.
 
+---
+
+🔒 **microVM isolation** · 🤖 **Multi-agent support** · 🔌 **Kits & templates** · 🌐 **Network governance** · 🔑 **Credential proxy** · 🚀 **One-command setup**
+
+> **Quick start:** `brew install docker/tap/sbx && sbx run claude` — your agent runs in a fully isolated microVM in seconds.
+
+---
+
 > [!NOTE]
 > This is a community-maintained list and is **not affiliated with or endorsed by Docker**. Many entries are early-stage and experimental — most are personal or demo repositories with few or no stars. Inclusion here is **not** an endorsement; check each project's own status, license, and security posture before use. Contributions and corrections welcome (see [Contributing](#contributing)).
 
@@ -178,9 +186,11 @@ Context on the architecture and how `sbx` compares to alternatives.
 
 Demo screencasts, live sessions, and tutorials about Docker Sandboxes.
 
-- [Docker Sandboxes Hands-On Guide – A Safe Space for AI Agents!](https://youtu.be/kNGXuIPXR24) — A practical hands-on tour covering YOLO mode, microVM isolation, and network policy tiers — referenced across community write-ups as a key getting-started resource.
-- [How Safe Is Docker Sandbox? Testing AI Agents with Java](https://www.youtube.com/watch?v=I-FqemEnUAc) — ~2-hour live session by Johannes Rabauer featuring Kevin Wittek (Docker). Runs a deliberately vulnerable Java/Maven project through Docker Sandbox to test YOLO mode containment, credential-leak blocking, Docker-in-Docker (Testcontainers), port forwarding, and local LLM setup. (Apr 30, 2026)
-- [Deploying Pi Coding Agents in Docker Sandboxes](https://youtube.com/watch?v=P7AZ-iDbIoc) — Details how to deploy the Pi coding agent inside a secure isolated microVM using the `sbx` CLI, from the Collabnix / Docker and DevOps channel. (Jun 10, 2026)
+| Thumbnail | Details |
+|:---------:|:--------|
+| [![Docker Sandboxes Hands-On Guide](https://img.youtube.com/vi/kNGXuIPXR24/hqdefault.jpg)](https://youtu.be/kNGXuIPXR24) | **[Docker Sandboxes Hands-On Guide – A Safe Space for AI Agents!](https://youtu.be/kNGXuIPXR24)** <br> A practical hands-on tour covering YOLO mode, microVM isolation, and network policy tiers — referenced across community write-ups as a key getting-started resource. |
+| [![How Safe Is Docker Sandbox? Testing AI Agents with Java](https://img.youtube.com/vi/I-FqemEnUAc/hqdefault.jpg)](https://www.youtube.com/watch?v=I-FqemEnUAc) | **[How Safe Is Docker Sandbox? Testing AI Agents with Java](https://www.youtube.com/watch?v=I-FqemEnUAc)** <br> ~2-hour live session by Johannes Rabauer featuring Kevin Wittek (Docker). Runs a deliberately vulnerable Java/Maven project through Docker Sandbox to test YOLO mode containment, credential-leak blocking, Docker-in-Docker (Testcontainers), port forwarding, and local LLM setup. _(Apr 30, 2026)_ |
+| [![Deploying Pi Coding Agents in Docker Sandboxes](https://img.youtube.com/vi/P7AZ-iDbIoc/hqdefault.jpg)](https://youtube.com/watch?v=P7AZ-iDbIoc) | **[Deploying Pi Coding Agents in Docker Sandboxes](https://youtube.com/watch?v=P7AZ-iDbIoc)** <br> Details how to deploy the Pi coding agent inside a secure isolated microVM using the `sbx` CLI, from the Collabnix / Docker and DevOps channel. _(Jun 10, 2026)_ |
 
 ## Docker Sandboxes Related Stuff
 
