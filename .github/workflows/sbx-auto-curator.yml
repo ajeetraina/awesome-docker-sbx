@@ -11,7 +11,7 @@ on:
       prompt:
         description: "Curator prompt to run"
         required: false
-        default: "Find new Docker Sandboxes (sbx) repositories from the last week and auto-commit them to the unreviewed section so that folks can see the agent is managing the repo"
+        default: "Find new Docker Sandboxes (sbx) repositories, YouTube videos, and related resources from the last week and auto-commit them to the unreviewed section so that folks can see the agent is managing the repo"
         type: string
       task:
         description: "Curator task"
@@ -75,7 +75,7 @@ jobs:
             # Default scheduled prompt — always appends to the unreviewed
             # section and auto-commits so contributors can see the agent
             # is managing the repo.
-            PROMPT="Find new Docker Sandboxes (sbx) repositories and resources published in the last 7 days. For each genuine new entry, append it to the 'Recently discovered (auto-added, unreviewed)' section of README.md with a one-line description and a security/maturity flag, then commit directly to main with a message prefixed 'chore(curator):' so folks can see the agent is managing the repo."
+            PROMPT="Find new Docker Sandboxes (sbx) repositories, YouTube videos, and resources published in the last 7 days. For each genuine new entry, append it to the 'Recently discovered (auto-added, unreviewed)' section of README.md with a one-line description and a security/maturity flag, then commit directly to main with a message prefixed 'chore(curator):' so folks can see the agent is managing the repo."
           fi
           echo "prompt=${PROMPT}" >> $GITHUB_OUTPUT
 
