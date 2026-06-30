@@ -2,25 +2,33 @@
 version: "2"
 
 models:
-  # Primary model. OpenAI is reliable at tool calling — it does not emit
-  # malformed shell-tool args (Nemotron kept sending `timeout` as a string,
-  # which the shell tool rejected, stalling the run), so the curator
-  # completes its discover -> judge -> commit loop dependably. No base_url,
-  # so it targets api.openai.com and authenticates from OPENAI_API_KEY,
-  # which the workflow sets to the repo's OPENAI_API_KEY secret.
-  gpt:
+  # Primary model. Free via NVIDIA build.nvidia.com (OpenAI-compatible
+  # endpoint, declared as an `openai` provider with a base_url override).
+  # Llama 3.3 70B has solid native function-calling, so unlike Nemotron it
+  # does not emit malformed shell-tool args (Nemotron kept sending `timeout`
+  # as a string, which the shell tool rejected, stalling the run). The
+  # openai provider authenticates from OPENAI_API_KEY, which the workflow
+  # points at the repo's NVIDIA_API_KEY secret.
+  llama:
     provider: openai
-    model: gpt-4o
+    model: meta/llama-3.3-70b-instruct
+    base_url: https://integrate.api.nvidia.com/v1
 
-  # Kept for reference / fallback. NVIDIA build.nvidia.com is also
-  # OpenAI-compatible, but reuses the OPENAI_API_KEY env var — so to use it
-  # you must point that secret back at an NVIDIA key. Note: this model has
-  # emitted malformed tool calls and degenerated mid-run, leaving the README
-  # un-updated — prefer `gpt` above.
+  # Kept for reference / fallback (same free NVIDIA endpoint). Note: this
+  # model has emitted malformed tool calls and degenerated mid-run, leaving
+  # the README un-updated — prefer `llama` above.
   nemotron:
     provider: openai
     model: nvidia/nemotron-3-super-120b-a12b
     base_url: https://integrate.api.nvidia.com/v1
+
+  # Paid, most reliable. Targets api.openai.com; requires the OPENAI_API_KEY
+  # secret to hold a real platform.openai.com key with billing enabled (and
+  # the workflow env switched back to secrets.OPENAI_API_KEY). Use this if
+  # the free NVIDIA models prove too flaky.
+  gpt:
+    provider: openai
+    model: gpt-4o
 
 metadata:
   author: Collabnix
@@ -38,10 +46,10 @@ metadata:
 
 agents:
   root:
-    # OpenAI (openai provider, declared in the models block above) for
-    # dependable tool calling. To fall back to the free NVIDIA model, change
-    # this to `nemotron` — but it has stalled mid-run, see the note above.
-    model: gpt
+    # Free Llama 3.3 70B on NVIDIA (declared in the models block above) for
+    # dependable tool calling at no cost. Alternatives: `nemotron` (free but
+    # has stalled mid-run) or `gpt` (paid OpenAI, most reliable).
+    model: llama
     description: >
       Discovers and triages new Docker Sandboxes (sbx) projects, then
       auto-commits vetted candidates to the README's unreviewed section.
