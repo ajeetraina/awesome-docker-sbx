@@ -2,10 +2,21 @@
 version: "2"
 
 models:
-  # NVIDIA build.nvidia.com endpoint is OpenAI-compatible. The openai
-  # provider authenticates from the OPENAI_API_KEY env var, which the
-  # workflow sets to the repo's NVIDIA_API_KEY secret value.
-  # Verify the model slug is current on build.nvidia.com.
+  # Primary model. OpenAI is reliable at tool calling — it does not emit
+  # malformed shell-tool args (Nemotron kept sending `timeout` as a string,
+  # which the shell tool rejected, stalling the run), so the curator
+  # completes its discover -> judge -> commit loop dependably. No base_url,
+  # so it targets api.openai.com and authenticates from OPENAI_API_KEY,
+  # which the workflow sets to the repo's OPENAI_API_KEY secret.
+  gpt:
+    provider: openai
+    model: gpt-4o
+
+  # Kept for reference / fallback. NVIDIA build.nvidia.com is also
+  # OpenAI-compatible, but reuses the OPENAI_API_KEY env var — so to use it
+  # you must point that secret back at an NVIDIA key. Note: this model has
+  # emitted malformed tool calls and degenerated mid-run, leaving the README
+  # un-updated — prefer `gpt` above.
   nemotron:
     provider: openai
     model: nvidia/nemotron-3-super-120b-a12b
@@ -27,10 +38,10 @@ metadata:
 
 agents:
   root:
-    # NVIDIA's API is OpenAI-compatible, so it is declared as a custom
-    # "openai" provider via the models block below (there is no built-in
-    # "nvidia" provider). Free to use with an NVIDIA build.nvidia.com key.
-    model: nemotron
+    # OpenAI (openai provider, declared in the models block above) for
+    # dependable tool calling. To fall back to the free NVIDIA model, change
+    # this to `nemotron` — but it has stalled mid-run, see the note above.
+    model: gpt
     description: >
       Discovers and triages new Docker Sandboxes (sbx) projects, then
       auto-commits vetted candidates to the README's unreviewed section.

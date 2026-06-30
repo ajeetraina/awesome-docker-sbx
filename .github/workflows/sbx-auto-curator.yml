@@ -81,7 +81,10 @@ jobs:
 
       - name: Run sbx Curator Agent
         env:
-          OPENAI_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          # Real OpenAI key (platform.openai.com) — the curator's `gpt` model
+          # targets api.openai.com. To switch back to the NVIDIA `nemotron`
+          # fallback, point this at secrets.NVIDIA_API_KEY instead.
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PAT }}
