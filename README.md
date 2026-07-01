@@ -239,7 +239,6 @@ Adjacent Docker resources commonly used with Docker Sandboxes.
 - [typisttech/sbx-kits](https://github.com/typisttech/sbx-kits) — Collection of reusable kits for Docker Sandboxes. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-05-30, unreviewed._
 - [ajeetraina/awesome-docker-sbx](https://github.com/ajeetraina/awesome-docker-sbx) — A curated list of tools, kits, templates, integrations, and resources for Docker Sandboxes (sbx) running AI coding agents in isolated microVMs. _Maturity: 2⭐, no releases. Security: n/a. Auto-added 2026-05-29, unreviewed._
 
-## Contributing
 
 ## Contributing
 
