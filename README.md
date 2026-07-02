@@ -1,11 +1,22 @@
-![stars](https://img.shields.io/github/stars/ajeetraina/awesome-docker-sbx)
-![Discord](https://img.shields.io/discord/1020180904129335379)
-![Twitter](https://img.shields.io/twitter/follow/collabnix?style=social)
+<div align="center">
 
+<img src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png" alt="Docker" width="60" />
+
+
+**A curated list of tools, kits, templates, integrations, and resources for [Docker Sandboxes](https://docs.docker.com/ai/sandboxes/) (`sbx`) — running AI coding agents in isolated microVMs.**
 
 # Awesome Docker Sandboxes (sbx) [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-> A curated list of tools, kits, templates, integrations, and resources for [Docker Sandboxes](https://docs.docker.com/ai/sandboxes/) (`sbx`) — running AI coding agents in isolated microVMs.
+[![Stars](https://img.shields.io/github/stars/ajeetraina/awesome-docker-sbx?style=flat-square&logo=github&color=blue)](https://github.com/ajeetraina/awesome-docker-sbx/stargazers)
+[![Discord](https://img.shields.io/discord/1020180904129335379?style=flat-square&logo=discord&color=5865F2&label=Discord)](https://discord.gg/collabnix)
+[![Twitter](https://img.shields.io/twitter/follow/collabnix?style=flat-square&logo=x&color=000&label=Follow)](https://twitter.com/collabnix)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](https://github.com/ajeetraina/awesome-docker-sbx/blob/main/CONTRIBUTING.md)
+[![Last Updated](https://img.shields.io/github/last-commit/ajeetraina/awesome-docker-sbx?style=flat-square&label=updated)](https://github.com/ajeetraina/awesome-docker-sbx/commits/main)
+
+</div>
+
+
+
 
 <img width="990" height="502" alt="image" src="https://github.com/user-attachments/assets/852c9b6f-1bd8-4110-aa76-e64de3f9b5bc" />
 
@@ -13,20 +24,22 @@
 [Docker Sandboxes](https://www.docker.com/products/docker-sandboxes/) is a standalone CLI (`sbx`) that runs AI coding agents like Claude Code, Codex, Gemini CLI, Copilot CLI, OpenCode, and Kiro inside isolated **microVMs** each with its own kernel, Docker daemon, filesystem, and network. The agent can build images, install packages, and modify files in full autonomy without ever touching the host. This list tracks how the community is using, extending, and building on top of `sbx`.
 
 
--  🔒 **microVM isolation** 
--  🤖 **Multi-agent support** 
--  🔌 **Kits & templates** 
--  🌐 **Network governance** 
--  🔑 **Credential proxy** 
--  🚀 **One-command setup**
+| | | |
+|:---:|:---:|:---:|
+| 🔒 **microVM isolation** | 🤖 **Multi-agent support** | 🔌 **Kits & templates** |
+| 🌐 **Network governance** | 🔑 **Credential proxy** | 🚀 **One-command setup** |
 
-> **Quick start:** `brew install docker/tap/sbx && sbx run claude` - your agent runs in a fully isolated microVM in seconds.
+**Quick start** — your agent runs in a fully isolated microVM in seconds:
+
+```sh
+brew install docker/tap/sbx && sbx run claude
+```
 
 
 > [!NOTE]
 > This is a community-maintained list and is **not affiliated with or endorsed by Docker**. Many entries are early-stage and experimental — most are personal or demo repositories with few or no stars. Inclusion here is **not** an endorsement; check each project's own status, license, and security posture before use. Contributions and corrections welcome (see [Contributing](#contributing)).
 
-## How this list is maintained
+## ⚙️ How this list is maintained
 
 This list is **human-curated, with an AI agent assisting discovery.** A [Docker Agent](./workflow/auto-curator-agent/sbx-curator.yaml) (the `sbx` Curator) runs on a schedule via [GitHub Actions](./.github/workflows/sbx-auto-curator.yml). It searches both **GitHub** (repos, kits, templates, via the GitHub search API) and the **wider web** (blog posts, tutorials, articles, and other write-ups, via web search) for new `sbx`-related material, judges each candidate for relevance, maturity, and credential-handling/security posture, and proposes additions to a separate **unreviewed** queue. A human reviews those before anything is promoted into the curated sections above.
 
@@ -34,7 +47,7 @@ The agent is deliberately scoped so it can only append to the unreviewed queue �
 
 The curator itself is built with [Docker Agents](https://docs.docker.com/ai/cagent/) and a [Nemotron](https://build.nvidia.com) model — a small, fitting example of the kind of agent tooling this list catalogs.
 
-## Contents
+## 📋 Contents
 
 - [Official](#official)
 - [Wrappers & CLIs](#wrappers--clis)
@@ -52,7 +65,7 @@ The curator itself is built with [Docker Agents](https://docs.docker.com/ai/cage
 - [Recently discovered (auto-added, unreviewed)](#recently-discovered-auto-added-unreviewed)
 - [Contributing](#contributing)
 
-## Official
+## 🏛️ Official
 
 Resources maintained by Docker.
 
@@ -62,7 +75,7 @@ Resources maintained by Docker.
 - [dockersamples/sbx-quickstart](https://github.com/dockersamples/sbx-quickstart) — Official quickstart walkthrough: mount a workspace, run an agent, work with branches, and explore the network governance panel.
 - [Product page: Docker Sandboxes](https://www.docker.com/products/docker-sandboxes/) — Overview, supported agents, and install commands for macOS, Windows, and Linux.
 
-## Wrappers & CLIs
+## 🔧 Wrappers & CLIs
 
 Tools that wrap `sbx` to streamline per-project or per-task setup. A notable pattern: several independent authors have converged on a **declarative config → bootstrapped sandbox** model, suggesting shared appetite for one-command setup above the base CLI.
 
@@ -73,7 +86,7 @@ Tools that wrap `sbx` to streamline per-project or per-task setup. A notable pat
 - [thewiw/docker-sbx](https://github.com/thewiw/docker-sbx) — Tooling to install the Docker Sandboxes engine and create/manage sandboxes.
 - [acomagu/nix-docker-sbx](https://github.com/acomagu/nix-docker-sbx) — A Nix flake for running Docker Sandboxes on Linux.
 
-## Kits
+## 📦 Kits
 
 Declarative YAML artifacts ([kits](https://docs.docker.com/ai/sandboxes/customize/kits/)) that extend a sandbox with tools, skills, credentials, and network rules at runtime. Includes vendor, Docker-team, and community kits.
 
@@ -103,7 +116,7 @@ Declarative YAML artifacts ([kits](https://docs.docker.com/ai/sandboxes/customiz
 - [ajeetraina/sbx-kits-nanoclaw](https://github.com/ajeetraina/sbx-kits-nanoclaw) — 🆕 Sandbox kit (kind: sandbox) for NanoClaw, a Claude Code–driven AI assistant runtime. Clones and builds the upstream repo at creation time; handles OneCLI bind-address and NO_PROXY quirks specific to the sbx microVM.
 - [ajeetraina/sbx-kits-nemoclaw](https://github.com/ajeetraina/sbx-kits-nemoclaw) — 🆕 Mixin kit that installs the NVIDIA NemoClaw CLI (OpenClaw and Hermes variants) into any sbx agent. Defaults to NVIDIA Endpoints inference; the NVIDIA key is injected via a custom sbx secret binding — never baked into the spec.
 
-## Templates & Images
+## 🖼️ Templates & Images
 
 Reusable [template](https://docs.docker.com/ai/sandboxes/customize/templates/) images that bake tools and configuration into a sandbox base image.
 
@@ -127,14 +140,14 @@ Reusable [template](https://docs.docker.com/ai/sandboxes/customize/templates/) i
 - [trq/pi-sandbox](https://github.com/trq/pi-sandbox) — Minimal template for running vanilla Pi in the `shell` sandbox environment.
 - [ajeetraina/sbx-mixins-template](https://github.com/ajeetraina/sbx-mixins-template) — 🆕 Starter template for building mixin kits. Includes a filled spec.yaml, a no-secret example (ruff linter), a push script, and guidance on the proxy-managed credential pattern. The mem0 kit is the reference implementation.
 
-## GUIs & Dashboards
+## 🖥️ GUIs & Dashboards
 
 Graphical and desktop tools for managing sandboxes, agents, and worktrees.
 
 - [mdelapenya/biomelab](https://github.com/mdelapenya/biomelab) — Desktop GUI for managing git worktrees and coding agents running in Docker Sandboxes (`sbx`). One sandbox per agent per repo; real-time sandbox lifecycle controls (create/start/stop/remove), worktree cards showing branch, dirty, sync, and PR status, multi-repo dashboard, and agent detection for Claude, Kiro, Copilot, Codex, OpenCode, and Gemini.
 - [beachead-dev/beachead](https://github.com/beachead-dev/beachead) — Tauri 2.0 desktop app (Rust/React) for managing Docker Sandbox microVMs. Features: Personas (agent configs), Sessions (terminal windows via xterm.js), Network Policies, and per-persona Memory backed by MCP containers in Docker. SQLite local storage.
 
-## Agent-Specific Setups
+## 🤖 Agent-Specific Setups
 
 Personal and project setups focused on a particular agent or environment.
 
@@ -147,7 +160,7 @@ Personal and project setups focused on a particular agent or environment.
 - [wireless25/crush-sandbox](https://github.com/wireless25/crush-sandbox) — Docker sandbox for the Crush CLI (Charmbracelet) with Git worktree support for multi-branch parallel agent work and per-workspace persistent caching.
 - [mikeatlas/omp-sbx](https://github.com/mikeatlas/omp-sbx) — 🆕 Full setup for running the oh-my-pi (omp) coding agent in a Docker sbx microVM. Shares `~/.omp` state across restarts, supports parallel worktree-based sandboxes, ships LSP servers, and replaces Puppeteer with a native Rust browser CLI to work around sbx's Chromium constraints.
 
-## Security & Demos
+## 🔐 Security & Demos
 
 Projects exploring the security boundary, threat models, and isolation guarantees of `sbx` — relevant given the product's core purpose.
 
@@ -155,7 +168,7 @@ Projects exploring the security boundary, threat models, and isolation guarantee
 - [kiview/you-gotta-keep-the-dogs-away](https://github.com/kiview/you-gotta-keep-the-dogs-away) — Demo code for the JCon 2026 talk "You Gotta Keep the Dogs Away" — sandboxing a malicious MCP server.
 - [sebbmn/secure-hermes-sandbox](https://github.com/sebbmn/secure-hermes-sandbox) — Hermes agent in `sbx` with a web-search proxy sanitizer and Firecrawl.
 
-## Guides & Tutorials
+## 📚 Guides & Tutorials
 
 Step-by-step, task-focused walkthroughs.
 
@@ -166,7 +179,7 @@ Step-by-step, task-focused walkthroughs.
 - [Customized templates with Docker sandbox](https://andrewlock.net/running-ai-agents-with-customized-templates-in-docker-sandbox/) — Andrew Lock on building custom templates: adding tools to the default base, or layering `sbx` tooling onto a different base image.
 - [ajeetraina/labspace-sbx](https://github.com/ajeetraina/labspace-sbx) — 🆕 Interactive lab for learning Docker Sandboxes: starts a local ttyd terminal alongside step-by-step instructions covering microVM isolation, credential proxy, network policy, git worktrees, parallel agents, Docker Model Runner, and enterprise governance.
 
-## Articles & Deep Dives
+## 📰 Articles & Deep Dives
 
 Opinion, analysis, and hands-on reports.
 
@@ -195,20 +208,20 @@ Opinion, analysis, and hands-on reports.
 - [Docker Sandboxes (sbx) Quick Start](https://pageai.pro/blog/docker-sandboxes-sbx-quick-start) — The three workflow patterns that separate "tried it once" from "use it daily," including non-interactive prompt runs.
 - [How Safe Is Docker Sandbox? Testing AI Agents with Java](https://rabauer.dev/blog/docker-sbx) — Johannes Rabauer and Kevin Wittek (Docker) put `sbx` through its paces against a deliberately vulnerable Java/Maven project designed to leak credentials — covering credential proxying, Docker-in-Docker (Testcontainers), port forwarding, and local LLMs via Docker Model Runner.
 
-## Videos & Talks
+## 🎥 Videos & Talks
 
 Recorded demos, conference talks, live sessions, and walkthroughs.
 
 - [How Safe Is Docker Sandbox? Testing AI Agents with Java](https://www.youtube.com/watch?v=I-FqemEnUAc) — ~2h live session by Johannes Rabauer and Kevin Wittek (Docker): running a malicious Java/Maven project through `sbx` in YOLO mode, covering credential proxying, Docker-in-Docker (Testcontainers), port forwarding, local LLMs via Docker Model Runner, and `sbx` kits. Apr 2026.
 
-## Background & Comparisons
+## 🔍 Background & Comparisons
 
 Context on the architecture and how `sbx` compares to alternatives.
 
 - [Architecture | Docker Docs](https://docs.docker.com/ai/sandboxes/architecture/) — How sandboxes work under the hood: microVM isolation, workspace mounting via filesystem passthrough, storage, networking, and lifecycle.
 - [Docker Sandbox: Running AI Agents in Isolated Docker Environments](https://www.morphllm.com/docker-sandbox) — A technical comparison of container isolation vs. `sbx`'s microVM model, the four-layer security model, and how managed sandbox APIs compare on cold start, persistence, and pricing.
 
-## Videos
+## 🎬 Videos
 
 Demo screencasts, live sessions, and tutorials about Docker Sandboxes.
 
@@ -218,14 +231,14 @@ Demo screencasts, live sessions, and tutorials about Docker Sandboxes.
 | [![How Safe Is Docker Sandbox? Testing AI Agents with Java](https://img.youtube.com/vi/I-FqemEnUAc/hqdefault.jpg)](https://www.youtube.com/watch?v=I-FqemEnUAc) | **[How Safe Is Docker Sandbox? Testing AI Agents with Java](https://www.youtube.com/watch?v=I-FqemEnUAc)** <br> ~2-hour live session by Johannes Rabauer featuring Kevin Wittek (Docker). Runs a deliberately vulnerable Java/Maven project through Docker Sandbox to test YOLO mode containment, credential-leak blocking, Docker-in-Docker (Testcontainers), port forwarding, and local LLM setup. _(Apr 30, 2026)_ |
 | [![Deploying Pi Coding Agents in Docker Sandboxes](https://img.youtube.com/vi/P7AZ-iDbIoc/hqdefault.jpg)](https://youtube.com/watch?v=P7AZ-iDbIoc) | **[Deploying Pi Coding Agents in Docker Sandboxes](https://youtube.com/watch?v=P7AZ-iDbIoc)** <br> Details how to deploy the Pi coding agent inside a secure isolated microVM using the `sbx` CLI, from the Collabnix / Docker and DevOps channel. _(Jun 10, 2026)_ |
 
-## Docker Sandboxes Related Stuff
+## 🐳 Docker Sandboxes Related Stuff
 
 Adjacent Docker resources commonly used with Docker Sandboxes.
 
 - [Docker AI docs](https://docs.docker.com/ai/) — Entry point for Docker AI tooling, including Sandboxes, Agent, and related workflows.
 - [Docker Agent docs](https://docs.docker.com/ai/cagent/) — Documentation for Docker Agent used in this repository’s auto-curator workflow.
 
-## Recently discovered (auto-added, unreviewed)
+## 🔎 Recently discovered (auto-added, unreviewed)
 
 - [opscart/docker-sandbox-devops](https://github.com/opscart/docker-sandbox-devops) — Hands-on exploration of Docker Sandboxes — labs, architecture notes, threat model, and DevOps templates for running AI coding agents in isolated microVMs. _Maturity: 0⭐, no releases. Security: proxy. Auto-added 2026-05-25, unreviewed._
 - [bouli/sbx-cline](https://github.com/bouli/sbx-cline) — A collection of scripts to use cline in docker sandbox. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-05-25, unreviewed._
@@ -248,7 +261,7 @@ Adjacent Docker resources commonly used with Docker Sandboxes.
 - [ajeetraina/awesome-docker-sbx](https://github.com/ajeetraina/awesome-docker-sbx) — A curated list of tools, kits, templates, integrations, and resources for Docker Sandboxes (sbx) running AI coding agents in isolated microVMs. _Maturity: 2⭐, no releases. Security: n/a. Auto-added 2026-05-29, unreviewed._
 
 
-## Contributing
+## 🤝 Contributing
 
 1. Make sure the entry is genuinely related to Docker Sandboxes (`sbx`) — not other sandbox products (e.g. E2B, Blaxel).
 2. Add it to the most relevant section, keeping the one-line format: `[name](url) — what it is and why it's useful.`
