@@ -98,6 +98,10 @@ Declarative YAML artifacts ([kits](https://docs.docker.com/ai/sandboxes/customiz
 - [fgervais/sbx-kit-pyocd](https://github.com/fgervais/sbx-kit-pyocd) — Kit for PyOCD (Open On-Chip Debugger) — useful for embedded/hardware development workflows inside a sandbox.
 - [fgervais/sbx-kit-serial-console](https://github.com/fgervais/sbx-kit-serial-console) — Kit providing serial console access inside a sandbox, targeting embedded/hardware use cases.
 - [TriticeaeToolbox/sbx-vscode](https://github.com/TriticeaeToolbox/sbx-vscode) — Kit that installs VSCode and the Claude Code extension into a Docker Sandbox, then creates a VSCode tunnel so you can connect your local VSCode (or a browser) directly to the sandbox.
+- [ajeetraina/sbx-kits-mem0](https://github.com/ajeetraina/sbx-kits-mem0) — Mixin kit that adds the Mem0 memory layer to any sandbox agent, pre-wired to a local Docker Model Runner (DMR) for both the LLM and the embedder. Supports OpenAI and Gemini as swappable cloud providers; credentials are proxy-managed.
+- [ajeetraina/sbx-kits-firecrawl](https://github.com/ajeetraina/sbx-kits-firecrawl) — Mixin kit that adds live web access to any agent via the Firecrawl Python SDK. Gives the agent the ability to search, scrape, and crawl; FIRECRAWL_API_KEY is proxy-managed.
+- [ajeetraina/sbx-kits-nanoclaw](https://github.com/ajeetraina/sbx-kits-nanoclaw) — Sandbox kit (kind: sandbox) for NanoClaw, a Claude Code–driven AI assistant runtime. Clones and builds the upstream repo at creation time; handles OneCLI bind-address and NO_PROXY quirks specific to the sbx microVM.
+- [ajeetraina/sbx-kits-nemoclaw](https://github.com/ajeetraina/sbx-kits-nemoclaw) — Mixin kit that installs the NVIDIA NemoClaw CLI (OpenClaw and Hermes variants) into any sbx agent. Defaults to NVIDIA Endpoints inference; the NVIDIA key is injected via a custom sbx secret binding — never baked into the spec.
 
 ## Templates & Images
 
@@ -121,6 +125,7 @@ Reusable [template](https://docs.docker.com/ai/sandboxes/customize/templates/) i
 - [shaftoe/sbx-template-pi](https://github.com/shaftoe/sbx-template-pi) — Template image for the Pi coding agent.
 - [caynev/sbx-pi](https://github.com/caynev/sbx-pi) — Template for Pi.
 - [trq/pi-sandbox](https://github.com/trq/pi-sandbox) — Minimal template for running vanilla Pi in the `shell` sandbox environment.
+- [ajeetraina/sbx-mixins-template](https://github.com/ajeetraina/sbx-mixins-template) — Starter template for building mixin kits. Includes a filled spec.yaml, a no-secret example (ruff linter), a push script, and guidance on the proxy-managed credential pattern. The mem0 kit is the reference implementation.
 
 ## GUIs & Dashboards
 
@@ -159,6 +164,7 @@ Step-by-step, task-focused walkthroughs.
 - [Build your own agent kit](https://docs.docker.com/ai/sandboxes/customize/build-an-agent/) — Walkthrough of building an agent kit (using Amp) from base-image choice to invocation.
 - [Run Claude Code in a Docker Sandbox with Docker Model Runner](https://docs.docker.com/guides/claude-code-sandbox-model-runner/) — Point Claude Code at a local model served by Docker Model Runner via `ANTHROPIC_BASE_URL` and a policy rule.
 - [Customized templates with Docker sandbox](https://andrewlock.net/running-ai-agents-with-customized-templates-in-docker-sandbox/) — Andrew Lock on building custom templates: adding tools to the default base, or layering `sbx` tooling onto a different base image.
+- [ajeetraina/labspace-sbx](https://github.com/ajeetraina/labspace-sbx) — Interactive lab for learning Docker Sandboxes: starts a local ttyd terminal alongside step-by-step instructions covering microVM isolation, credential proxy, network policy, git worktrees, parallel agents, Docker Model Runner, and enterprise governance.
 
 ## Articles & Deep Dives
 
