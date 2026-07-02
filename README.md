@@ -97,6 +97,7 @@ Declarative YAML artifacts ([kits](https://docs.docker.com/ai/sandboxes/customiz
 - [kulla/sbx-kits](https://github.com/kulla/sbx-kits) — Personal kit collection, including an asdf version-manager kit.
 - [fgervais/sbx-kit-pyocd](https://github.com/fgervais/sbx-kit-pyocd) — Kit for PyOCD (Open On-Chip Debugger) — useful for embedded/hardware development workflows inside a sandbox.
 - [fgervais/sbx-kit-serial-console](https://github.com/fgervais/sbx-kit-serial-console) — Kit providing serial console access inside a sandbox, targeting embedded/hardware use cases.
+- [TriticeaeToolbox/sbx-vscode](https://github.com/TriticeaeToolbox/sbx-vscode) — Kit that installs VSCode and the Claude Code extension into a Docker Sandbox, then creates a VSCode tunnel so you can connect your local VSCode (or a browser) directly to the sandbox.
 
 ## Templates & Images
 
@@ -139,6 +140,7 @@ Personal and project setups focused on a particular agent or environment.
 - [wluberti/sandbox](https://github.com/wluberti/sandbox) — Project to run agentic agents and harnesses in `sbx`.
 - [cuolm/pi-sbx-llamacpp](https://github.com/cuolm/pi-sbx-llamacpp) — Run the Pi coding agent in a Docker Sandbox microVM with a local llama-server as inference backend. Includes architecture diagram, `spec.yaml`, and `models.json` for provider config.
 - [wireless25/crush-sandbox](https://github.com/wireless25/crush-sandbox) — Docker sandbox for the Crush CLI (Charmbracelet) with Git worktree support for multi-branch parallel agent work and per-workspace persistent caching.
+- [mikeatlas/omp-sbx](https://github.com/mikeatlas/omp-sbx) — Full setup for running the oh-my-pi (omp) coding agent in a Docker sbx microVM. Shares `~/.omp` state across restarts, supports parallel worktree-based sandboxes, ships LSP servers, and replaces Puppeteer with a native Rust browser CLI to work around sbx's Chromium constraints.
 
 ## Security & Demos
 
