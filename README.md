@@ -63,6 +63,8 @@ The curator itself is built with [Docker Agents](https://docs.docker.com/ai/cage
 - [Recently discovered (auto-added, unreviewed)](#recently-discovered-auto-added-unreviewed)
 - [Contributing](#contributing)
 
+- [sbx Cheatsheet](#sbx-cheatsheet)
+
 ## 🏛️ Official
 
 Resources maintained by Docker.
@@ -267,3 +269,170 @@ Adjacent Docker resources commonly used with Docker Sandboxes.
 4. Keep descriptions neutral and factual; this is a reference, not a marketing page.
 
 Open a pull request or an issue with the link and a short description.
+
+
+---
+
+## 🧾 sbx Cheatsheet
+
+Quick reference for `sbx` — safe, isolated environments for AI agents.
+
+_Generated against `sbx v0.34.0-rc1` (nightly). Run `sbx version` to check yours. Every command supports `--help`; `-D`/`--debug` works everywhere._
+
+### 🔑 SSH access (experimental) — the new bit
+
+`sbx ssh` is a **provisioning helper, not a connect command** — it configures your normal SSH client to talk to the sandboxd SSH endpoint. After a one-time setup you connect with plain `ssh`, using the **sandbox name as the username** and a single host alias `sbx`.
+
+| Command | What it does |
+|---|---|
+| `sbx ssh setup` | One-time: writes `~/.ssh/config` alias + managed key (idempotent) |
+| `ssh <sandbox-name>@sbx` | Connect (interactive shell) |
+| `ssh <sandbox-name>@sbx -- echo hello` | Run a single command |
+| `scp ./file.txt <sandbox-name>@sbx:/tmp/` | Copy over the same endpoint |
+
+**How it works**
+
+| Aspect | Detail |
+|---|---|
+| Host alias | One `sbx` entry in `~/.ssh/config` — no per-sandbox entries, no name prefixes |
+| Username | The **sandbox name** — `ssh sbxlab@sbx` connects to sandbox `sbxlab` |
+| Key | A **dedicated managed key** (not your personal identity), stored `0600` at `~/Library/Application Support/com.docker.sandboxes/sandboxes/ssh/id_sbx.pub` and registered via `ssh.authorizedKeys` |
+| Host-key verification | Live via `KnownHostsCommand` — a rotated daemon key won't break connections, and there are **no host-key prompts** |
+| Credential forwarding | `ssh.acceptEnv` forwards these into the sandbox if set in your shell: `ANTHROPIC_API_KEY`, `ANTHROPIC_AUTH_TOKEN`, `ANTHROPIC_BASE_URL`, `CLAUDE_CODE_OAUTH_TOKEN`, `OPENAI_API_KEY`, `OPENAI_BASE_URL`, `GEMINI_API_KEY`, `GOOGLE_API_KEY`, `GH_TOKEN`, `GITHUB_TOKEN` |
+
+**`sbx ssh setup` flags**
+
+| Flag | Purpose |
+|---|---|
+| `--alias <name>` | `ssh_config` `Host` alias to write (default `sbx`) |
+| `--regenerate` | Rotate the managed key |
+
+Bring your own keys instead of the managed one: set `ssh.manageKey=false`.
+
+**Testing the SSH flow** — layer it up, verify each step before the next:
+
+| Step | Command | Purpose |
+|---|---|---|
+| 0 | `cp ~/.ssh/config ~/.ssh/config.bak` | Back up SSH config first (setup edits `~/.ssh/config` and `known_hosts`) |
+| 1 | `sbx ssh setup` then `grep -A8 "Host sbx" ~/.ssh/config` | Provision, then inspect what it wrote |
+| 2 | `sbx create shell .` then `ssh <name>@sbx -- echo hello` | Smoke test — must print "hello" with **no prompts** |
+| 3 | `ssh <name>@sbx` | Interactive shell — auto-starts a stopped sandbox; prompt should be `agent@<name>` |
+| 4 | `ssh <name>@sbx -- 'whoami; hostname'` / `ssh doesnotexist@sbx -- echo hi` | Isolation & negative checks — inside the sandbox, not the host; bad names fail cleanly |
+| 5 | `sbx ssh setup` (re-run) / `sbx ssh setup --regenerate` | Idempotency (clean no-op) & key rotation (reconnect still works) |
+
+Success looks like landing in `agent@<name>:~/workspace$` with zero prompts.
+
+### 🏗️ Create & run sandboxes
+
+| Command | Description |
+|---|---|
+| `sbx create claude .` | Create a sandbox for an agent in current dir |
+| `sbx create --name my-project claude /path/to/project` | Create with a custom name/path |
+| `sbx create claude . /path/to/docs:ro` | Add an extra read-only workspace |
+| `sbx create --clone claude .` | Run on a private in-container git clone |
+| `sbx run claude` | Create **and** attach in one step |
+| `sbx run --name existing-sandbox` | Re-attach to an existing sandbox |
+| `sbx run claude -- --continue` | Pass args through to the agent |
+
+**Agents:** `claude`, `claude-bedrock`, `codex`, `copilot`, `cursor`, `docker-agent`, `droid`, `gemini`, `kiro`, `opencode`, `shell`
+
+**Common create/run flags**
+
+| Flag | Purpose |
+|---|---|
+| `--name` | Name the sandbox |
+| `--cpus N` | CPU limit |
+| `-m`/`--memory 8g` | Memory limit |
+| `-t`/`--template <image>` | Base template image |
+| `--clone` | Run on a private git clone |
+| `--profile <governance>` | Governance profile |
+| `--kit <ref>` | Attach a kit |
+
+### 📋 Manage sandboxes
+
+| Command | Description |
+|---|---|
+| `sbx ls` | List sandboxes (`--json`, `-q` for names only) |
+| `sbx stop <name> [name...]` | Stop without removing (state retained; restart with `sbx run`) |
+| `sbx rm <name>` | Remove sandbox + resources (aliases: `remove`, `delete`) |
+| `sbx rm --all -f` | Remove everything, skip confirmation |
+| `sbx tui` | Interactive TUI dashboard |
+
+### 📂 Run commands & move files
+
+| Command | Description |
+|---|---|
+| `sbx exec -it <name> bash` | Open a shell (docker-exec semantics) |
+| `sbx exec -d <name> npm start` | Run detached |
+| `sbx exec -u root <name> apt-get update` | Run as root |
+| `sbx cp ./config.json <name>:/home/user/` | Copy host → sandbox |
+| `sbx cp <name>:/home/user/output.log ./` | Copy sandbox → host |
+
+### 🔌 Mounts & ports
+
+| Command | Description |
+|---|---|
+| `sbx mount <name> /Users/me/data` | Allowlist a host path |
+| `sbx mount <name> /Users/me/data:/workspace/data` | Bind-mount (rw) |
+| `sbx mount <name> /Users/me/data:/workspace/data:ro` | Bind-mount read-only |
+| `sbx umount <name> /Users/me/data` | Revoke |
+| `sbx ports <name>` | List published ports (`--json`) |
+| `sbx ports <name> --publish 8080` | Publish to an ephemeral host port |
+| `sbx ports <name> --publish 3000:8080` | Publish to a specific host port |
+| `sbx ports <name> --unpublish 3000:8080` | Unpublish a port |
+
+### 🔐 Secrets & policy
+
+| Command | Description |
+|---|---|
+| `sbx secret ls` | List stored secrets |
+| `sbx secret set <service>` | Create/update (e.g. `github`, `anthropic`, `openai`) |
+| `sbx secret import` | Import from host env vars |
+| `sbx secret rm <name>` | Remove a secret |
+| `sbx policy ls` | List access rules |
+| `sbx policy allow <rule>` | Add allow rule |
+| `sbx policy deny <rule>` | Add deny rule |
+| `sbx policy check <request>` | Test whether an access is allowed |
+| `sbx policy log` | Policy decision logs |
+| `sbx policy init` | Initialize global network policy |
+| `sbx policy profile ...` | Manage policy profiles |
+
+### 🧩 Templates & kits (experimental)
+
+| Command | Description |
+|---|---|
+| `sbx template save <name>` | Snapshot a sandbox as a reusable template |
+| `sbx template ls` | List template images |
+| `sbx template rm <name>` | Remove a template |
+| `sbx template load <file.tar>` | Load a template from file |
+| `sbx kit pack <dir>` | Package a directory as a kit artifact |
+| `sbx kit add <name> <ref>` | Add a kit to a running sandbox |
+| `sbx kit pull` / `push` / `inspect` / `validate` | Manage kit artifacts |
+
+### 🛠️ Setup, auth & maintenance
+
+| Command | Description |
+|---|---|
+| `sbx login` | Sign in to Docker (`--username`, `--password-stdin`) |
+| `sbx logout` | Stop all sandboxes + sign out |
+| `sbx setup` | (experimental) Detect host config & prepare sbx |
+| `sbx diagnose` | Troubleshoot install (`-o json` or `github-issue`, `--upload`) |
+| `sbx reset -f` | Reset to fresh state (`--preserve-secrets`) |
+| `sbx version` | Show version |
+| `sbx completion <shell>` | Generate shell autocompletion |
+
+### 🧭 Quick mental model
+
+| Concept | Meaning |
+|---|---|
+| `create` | Make it |
+| `run` | Make + attach |
+| `exec` | Run inside |
+| `ssh` | Configure `ssh <name>@sbx` |
+| `stop` | Keeps state |
+| `rm` | Deletes |
+| `reset` | Wipes everything |
+| `mount` / `umount` | Isolation knob: files |
+| `ports` | Isolation knob: network in |
+| `policy` | Isolation knob: network out |
+| `secret` | Isolation knob: credentials |
