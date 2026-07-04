@@ -261,23 +261,9 @@ Adjacent Docker resources commonly used with Docker Sandboxes.
 - [ajeetraina/awesome-docker-sbx](https://github.com/ajeetraina/awesome-docker-sbx) — A curated list of tools, kits, templates, integrations, and resources for Docker Sandboxes (sbx) running AI coding agents in isolated microVMs. _Maturity: 2⭐, no releases. Security: n/a. Auto-added 2026-05-29, unreviewed._
 
 
-## 🤝 Contributing
-
-1. Make sure the entry is genuinely related to Docker Sandboxes (`sbx`) — not other sandbox products (e.g. E2B, Blaxel).
-2. Add it to the most relevant section, keeping the one-line format: `[name](url) — what it is and why it's useful.`
-3. For tools, kits, and templates, note maturity honestly (e.g. experimental, no releases) so readers can judge for themselves.
-4. Keep descriptions neutral and factual; this is a reference, not a marketing page.
-
-Open a pull request or an issue with the link and a short description.
-
-
----
-
 ## 🧾 sbx Cheatsheet
 
-Quick reference for `sbx` — safe, isolated environments for AI agents.
-
-_Generated against `sbx v0.34.0-rc1` (nightly). Run `sbx version` to check yours. Every command supports `--help`; `-D`/`--debug` works everywhere._
+Quick reference for `sbx` - safe, isolated environments for AI agents.
 
 ### 🔑 SSH access (experimental) — the new bit
 
