@@ -35,7 +35,7 @@ brew install docker/tap/sbx && sbx run claude
 
 
 > [!NOTE]
-> This is a community-maintained list and is **not affiliated with or endorsed by Docker**. Many entries are early-stage and experimental — most are personal or demo repositories with few or no stars. Inclusion here is **not** an endorsement; check each project's own status, license, and security posture before use. Contributions and corrections welcome (see [Contributing](#contributing)).
+> This is a community-maintained list and is **not affiliated with or endorsed by Docker**. Many entries are early-stage and experimental — most are personal or demo repositories with few or no stars. Inclusion here is **not** an endorsement; check each project's own status, license, and security posture before use. 
 
 ## ⚙️ How this list is maintained
 
