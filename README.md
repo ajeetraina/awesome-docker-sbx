@@ -62,7 +62,6 @@ The curator itself is built with [Docker Agents](https://docs.docker.com/ai/cage
 - [Docker Sandboxes Related Stuff](#docker-sandboxes-related-stuff)
 - [Recently discovered (auto-added, unreviewed)](#recently-discovered-auto-added-unreviewed)
 - [Contributing](#contributing)
-
 - [sbx Cheatsheet](#sbx-cheatsheet)
 
 ## 🏛️ Official
