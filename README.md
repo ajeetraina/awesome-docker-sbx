@@ -1,4 +1,4 @@
-<div align="center">
+- [awesome-docker-sbx](https://github.com/ajeetraina/awesome-docker-sbx) — A curated list of tools, kits, templates, integrations, and resources for Docker Sandboxes (sbx)  running AI coding agents in isolated microVMs. _Maturity: 22/⭐, n/a_. Security: n/a. Auto-added 2026-07-07, unreviewed._- [sbx-with-zed](https://github.com/krisfoster/sbx-with-zed) — ACP wrapper letting ACP editors (Zed, JetBrains, VS Code) drive Docker Sandboxes (sbx) running Claude. _Maturity: 0/⭐, n/a_. Security: n/a. Auto-added 2026-07-07, unreviewed._<div align="center">
 
 
 **A curated list of tools, kits, templates, integrations, and resources for [Docker Sandboxes](https://docs.docker.com/ai/sandboxes/) (`sbx`) running AI coding agents in isolated microVMs.**
