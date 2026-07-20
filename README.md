@@ -1,4 +1,4 @@
-
+- [karanverma/sbx-ai-eval-kit](https://github.com/karanverma/sbx-ai-eval-kit) — AI Evaluation Mixin Kit for Docker Sandboxes (SBX). Enables repeatable, isolated workflows for benchmarking, testing, and evaluating AI agents and models. _Maturity: 0, releases? | n/a>. Security: <proxy | host-env creds | n/a>. Auto-added 2026-07-20, unreviewed._
 
 # Awesome Docker Sandboxes (sbx) [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
