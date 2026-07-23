@@ -154,6 +154,7 @@ Personal and project setups focused on a particular agent or environment.
 - [cuolm/pi-sbx-llamacpp](https://github.com/cuolm/pi-sbx-llamacpp) — Run the Pi coding agent in a Docker Sandbox microVM with a local llama-server as inference backend. Includes architecture diagram, `spec.yaml`, and `models.json` for provider config.
 - [wireless25/crush-sandbox](https://github.com/wireless25/crush-sandbox) — Docker sandbox for the Crush CLI (Charmbracelet) with Git worktree support for multi-branch parallel agent work and per-workspace persistent caching.
 - [mikeatlas/omp-sbx](https://github.com/mikeatlas/omp-sbx) — 🆕 Full setup for running the oh-my-pi (omp) coding agent in a Docker sbx microVM. Shares `~/.omp` state across restarts, supports parallel worktree-based sandboxes, ships LSP servers, and replaces Puppeteer with a native Rust browser CLI to work around sbx's Chromium constraints.
+- [cdr-chakotay/sbx-mistral](https://github.com/cdr-chakotay/sbx-mistral) — 🆕 Docker sandbox for running Mistral Vibe CLI in full isolation. Launches in YOLO mode (auto-approve) by default; switch to confirmation-based modes via Shift+Tab for more controlled execution.
 
 ## 🔐 Security & Demos
 
