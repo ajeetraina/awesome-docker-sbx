@@ -110,6 +110,7 @@ Declarative YAML artifacts ([kits](https://docs.docker.com/ai/sandboxes/customiz
 - [ajeetraina/sbx-kits-firecrawl](https://github.com/ajeetraina/sbx-kits-firecrawl) — 🆕 Mixin kit that adds live web access to any agent via the Firecrawl Python SDK. Gives the agent the ability to search, scrape, and crawl; FIRECRAWL_API_KEY is proxy-managed.
 - [ajeetraina/sbx-kits-nanoclaw](https://github.com/ajeetraina/sbx-kits-nanoclaw) — 🆕 Sandbox kit (kind: sandbox) for NanoClaw, a Claude Code–driven AI assistant runtime. Clones and builds the upstream repo at creation time; handles OneCLI bind-address and NO_PROXY quirks specific to the sbx microVM.
 - [ajeetraina/sbx-kits-nemoclaw](https://github.com/ajeetraina/sbx-kits-nemoclaw) — 🆕 Mixin kit that installs the NVIDIA NemoClaw CLI (OpenClaw and Hermes variants) into any sbx agent. Defaults to NVIDIA Endpoints inference; the NVIDIA key is injected via a custom sbx secret binding — never baked into the spec.
+- [dirien/infrastructure-sandbox-kit](https://github.com/dirien/infrastructure-sandbox-kit) — 🆕 Mixin kit that sets up a Claude Code sandbox for Infrastructure-as-Code work: Pulumi, Terraform, OpenTofu, and the AWS/Azure/Google Cloud CLIs (version-pinned, checksum- or signature-verified), plus language servers and an APM setup (skills, subagents, guardrail hooks, Pulumi MCP) in the agent home. The Pulumi Cloud token is proxy-managed. The same repo ships a matching template image (see Templates & Images).
 
 ## 🖼️ Templates & Images
 
@@ -134,6 +135,7 @@ Reusable [template](https://docs.docker.com/ai/sandboxes/customize/templates/) i
 - [caynev/sbx-pi](https://github.com/caynev/sbx-pi) — Template for Pi.
 - [trq/pi-sandbox](https://github.com/trq/pi-sandbox) — Minimal template for running vanilla Pi in the `shell` sandbox environment.
 - [ajeetraina/sbx-mixins-template](https://github.com/ajeetraina/sbx-mixins-template) — 🆕 Starter template for building mixin kits. Includes a filled spec.yaml, a no-secret example (ruff linter), a push script, and guidance on the proxy-managed credential pattern. The mem0 kit is the reference implementation.
+- [dirien/infrastructure-sandbox-kit](https://github.com/dirien/infrastructure-sandbox-kit) — 🆕 Prebuilt Infrastructure-as-Code template for the `claude` agent with Pulumi, Terraform, OpenTofu, the cloud CLIs, and language servers baked in, so sandboxes start in seconds instead of provisioning on first create. Pair it with the kit from the same repo for the network allow-list and the proxy-managed Pulumi credential.
 
 ## 🖥️ GUIs & Dashboards
 
