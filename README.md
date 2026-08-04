@@ -33,7 +33,7 @@ brew install docker/tap/sbx && sbx run claude
 > [!NOTE]
 > This is a community-maintained list and is **not affiliated with or endorsed by Docker**. Many entries are early-stage and experimental, most are personal or demo repositories with few or no stars. Inclusion here is **not** an endorsement; check each project's own status, license, and security posture before use. 
 
-## [💡 Submit your Sandbox Kits](https://github.com/ajeetraina/awesome-docker-sbx/discussion)
+## [💡 Submit your Sandbox Kits](https://github.com/ajeetraina/awesome-docker-sbx/discussions)
 
 Here's a place to suggest new ideas for Docker Sandbox Kits and get new ideas of what to build for the larger Docker community.
 
