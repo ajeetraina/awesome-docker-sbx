@@ -65,12 +65,11 @@ The curator itself is built with [Docker Agents](https://docs.docker.com/ai/cage
 
 A hand-picked set of kits and setups worth starting with — spanning CI/CD, databases, local-model coding agents, and per-agent isolation. Several also appear in their category sections below.
 
-- [ajeetraina/sbx-kits-dagger](https://github.com/ajeetraina/sbx-kits-dagger) — Mixin kit that adds [Dagger](https://dagger.io/), a programmable containerized CI/CD engine, to any sandbox agent. Installs the Dagger CLI as the agent user and allow-lists only the egress Dagger needs; because the sandbox is a microVM with its **own private Docker daemon**, the Dagger engine provisions and runs entirely inside the VM — no host access, no remote runner. Dagger Cloud is optional and off by default.
-- [ajeetraina/sbx-kits-surrealdb](https://github.com/ajeetraina/sbx-kits-surrealdb) — Mixin kit that embeds [SurrealDB](https://surrealdb.com/) — documents, graph edges, and **native vector search** in one process — plus the `surrealdb` Python SDK into any agent. SurrealDB runs in-process and persists on disk inside the VM, and vector search is pre-wired to a local Docker Model Runner embedder, so an agent gets semantic memory with no separate vector database. Embedder is swappable to OpenAI or Gemini.
-- [shelajev/agy-sbx-kit](https://github.com/shelajev/agy-sbx-kit) — Kit for running Google's Antigravity CLI (`agy`) in an isolated sandbox. By a Docker DevRel.
 - [shelajev/tessl-sbx-kit](https://github.com/shelajev/tessl-sbx-kit) — Kit that installs the Tessl CLI, injects credentials via the proxy, and wires the Tessl MCP server into the sandboxed agent.
-- [shelajev/little-coder-sbx-kit](https://github.com/shelajev/little-coder-sbx-kit) — Kit for running little-coder with Docker Model Runner — a fully local coding-agent setup with no cloud keys.
 - [jbradford/sbx-pi-agent](https://github.com/jbradford/sbx-pi-agent) — A personal setup for running the Pi agent in `sbx`.
+- [ajeetraina/sbx-kits-litellm](https://github.com/ajeetraina/sbx-kits-litellm) - A standalone Docker Sandboxes kit (kind: mixin) that points a sandbox agent at a LiteLLM proxy running on the host, reachable at host.docker.internal:4000.
+- [shelajev/agy-sbx-kit](https://github.com/shelajev/agy-sbx-kit) — Kit for running Google's Antigravity CLI (`agy`) in an isolated sandbox. By a Docker DevRel.
+- [dvdksn/sbx-kitty](https://github.com/dvdksn/sbx-kitty) — sbx blueprint for the kitty terminal emulator, by a Docker employee. Good pattern reference for tooling kits.
 
 ## 🏛️ Official
 
