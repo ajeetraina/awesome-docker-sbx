@@ -1,4 +1,4 @@
-
+- [stixxert/pi-docker-sandbox](https://github.com/stixxert/pi-docker-sandbox) — Pi extension: a private docker sandbox (sbx microVM with its own daemon) as the agent's deploy target — the host's docker is never exposed. _Maturity: 0 ★, no releases | n/a>. Security: n/a. Auto-added 2026-08-08, unreviewed._
 # Awesome Docker Sandboxes (sbx) [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
 [![Stars](https://img.shields.io/github/stars/ajeetraina/awesome-docker-sbx?style=flat-square&logo=github&color=blue)](https://github.com/ajeetraina/awesome-docker-sbx/stargazers)
