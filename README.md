@@ -1,4 +1,4 @@
-
+- [stone/sbx-templates](https://github.com/stone/sbx-templates) — Dev-container images for the Docker sandbox (sbx), built with buildx bake and tested with goss/dgoss. _Maturity: 0, releases? | n/a>. Security: n/a. Auto-added 2026-08-06, unreviewed._
 # Awesome Docker Sandboxes (sbx) [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
 [![Stars](https://img.shields.io/github/stars/ajeetraina/awesome-docker-sbx?style=flat-square&logo=github&color=blue)](https://github.com/ajeetraina/awesome-docker-sbx/stargazers)
