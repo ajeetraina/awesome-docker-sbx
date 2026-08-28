@@ -52,7 +52,7 @@ Here's a place to suggest new ideas for Docker Sandbox Kits and get new ideas of
 - [Background & Comparisons](#background--comparisons)
 - [Videos](#videos)
 - [Docker Sandboxes Related Stuff](#docker-sandboxes-related-stuff)
-- [Recently discovered (auto-added, unreviewed)](#recently-discovered-auto-added-unreviewed)
+- [Recently discovered (auto-added, unreviewed)](#-recently-discovered-auto-added-unreviewed)
 - [Contributing](#contributing)
 - [sbx Cheatsheet](#sbx-cheatsheet)
 
