@@ -4,22 +4,19 @@ version: "2"
 models:
   # Primary model. Free via NVIDIA build.nvidia.com (OpenAI-compatible
   # endpoint, declared as an `openai` provider with a base_url override).
-  # Llama 3.3 70B has solid native function-calling, so unlike Nemotron it
-  # does not emit malformed shell-tool args (Nemotron kept sending `timeout`
-  # as a string, which the shell tool rejected, stalling the run). The
-  # openai provider authenticates from OPENAI_API_KEY, which the workflow
-  # points at the repo's NVIDIA_API_KEY secret.
+  # Llama 3.1 Nemotron 70B has solid native function-calling. The openai
+  # provider authenticates from OPENAI_API_KEY, which the workflow points at
+  # the repo's NVIDIA_API_KEY secret.
+  # Note: meta/llama-3.3-70b-instruct reached end-of-life on 2026-08-26.
   llama:
     provider: openai
-    model: meta/llama-3.3-70b-instruct
+    model: nvidia/llama-3.1-nemotron-70b-instruct
     base_url: https://integrate.api.nvidia.com/v1
 
-  # Kept for reference / fallback (same free NVIDIA endpoint). Note: this
-  # model has emitted malformed tool calls and degenerated mid-run, leaving
-  # the README un-updated — prefer `llama` above.
-  nemotron:
+  # Fallback (same free NVIDIA endpoint).
+  llama_fallback:
     provider: openai
-    model: nvidia/nemotron-3-super-120b-a12b
+    model: meta/llama-3.1-70b-instruct
     base_url: https://integrate.api.nvidia.com/v1
 
   # Paid, most reliable. Targets api.openai.com; requires the OPENAI_API_KEY
