@@ -43,10 +43,9 @@ metadata:
 
 agents:
   root:
-    # Free Llama 3.3 70B on NVIDIA (declared in the models block above) for
-    # dependable tool calling at no cost. Alternatives: `nemotron` (free but
-    # has stalled mid-run) or `gpt` (paid OpenAI, most reliable).
-    model: llama
+    # Use the known-good NVIDIA model alias to avoid endpoint 404s from
+    # retired/invalid model IDs. Alternative: `gpt` (paid OpenAI).
+    model: llama_fallback
     description: >
       Discovers and triages new Docker Sandboxes (sbx) projects, then
       auto-commits vetted candidates to the README's unreviewed section.
