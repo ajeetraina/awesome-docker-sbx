@@ -4,19 +4,24 @@ version: "2"
 models:
   # Primary model. Free via NVIDIA build.nvidia.com (OpenAI-compatible
   # endpoint, declared as an `openai` provider with a base_url override).
-  # Llama 3.1 Nemotron 70B has solid native function-calling. The openai
-  # provider authenticates from OPENAI_API_KEY, which the workflow points at
-  # the repo's NVIDIA_API_KEY secret.
-  # Note: meta/llama-3.3-70b-instruct reached end-of-life on 2026-08-26.
+  # Nemotron 3 Super is a hybrid Mamba-Transformer MoE tuned for agentic
+  # reasoning and tool calling. The openai provider authenticates from
+  # OPENAI_API_KEY, which the workflow points at the repo's NVIDIA_API_KEY
+  # secret.
+  # Note: NVIDIA retires free models periodically. Previously used
+  # meta/llama-3.3-70b-instruct (EOL 2026-08-26) and then
+  # nvidia/llama-3.1-nemotron-70b-instruct (returns a per-account 404 —
+  # no longer served on integrate.api.nvidia.com). If this one starts
+  # 404ing too, check build.nvidia.com for the current model id.
   llama:
     provider: openai
-    model: nvidia/llama-3.1-nemotron-70b-instruct
+    model: nvidia/nemotron-3-super-120b-a12b
     base_url: https://integrate.api.nvidia.com/v1
 
   # Fallback (same free NVIDIA endpoint).
   llama_fallback:
     provider: openai
-    model: meta/llama-3.1-70b-instruct
+    model: nvidia/nemotron-3.5-lightning-30b-a3b
     base_url: https://integrate.api.nvidia.com/v1
 
   # Paid, most reliable. Targets api.openai.com; requires the OPENAI_API_KEY
@@ -43,9 +48,9 @@ metadata:
 
 agents:
   root:
-    # Free Llama 3.3 70B on NVIDIA (declared in the models block above) for
-    # dependable tool calling at no cost. Alternatives: `nemotron` (free but
-    # has stalled mid-run) or `gpt` (paid OpenAI, most reliable).
+    # Free Nemotron 3 Super on NVIDIA (declared in the models block above)
+    # for dependable tool calling at no cost. Alternatives: `llama_fallback`
+    # (free, faster/smaller) or `gpt` (paid OpenAI, most reliable).
     model: llama
     description: >
       Discovers and triages new Docker Sandboxes (sbx) projects, then
