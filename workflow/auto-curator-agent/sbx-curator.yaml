@@ -37,14 +37,17 @@ metadata:
   license: MIT
   readme: |
     sbx Curator — an autonomous agent that discovers new Docker Sandboxes
-    (sbx) repositories, YouTube videos, and resources, judges their relevance and maturity,
-    flags security posture, and appends genuine new entries to the
-    "Recently discovered (auto-added, unreviewed)" section of the README.
+    (sbx) repositories, blog posts, YouTube videos, and resources, judges
+    their relevance and maturity, flags security posture, and proposes
+    genuine new entries for the "Recently discovered (auto-added,
+    unreviewed)" section of the README.
 
-    Quarantine by design: the agent NEVER edits the hand-curated sections.
-    Everything it adds lands in the unreviewed section for a human to
-    promote later. This preserves the list's curation quality while still
-    keeping the discovery loop fully automated.
+    Issue + PR by design: the agent opens a tracking issue per discovery,
+    adds the entries on a branch, and merges them via a single PR (never a
+    direct push to main). It NEVER edits the hand-curated sections —
+    everything lands in the unreviewed section for a human to promote later.
+    This preserves the list's curation quality and leaves a reviewable
+    audit trail while keeping the discovery loop fully automated.
 
 agents:
   root:
@@ -53,8 +56,9 @@ agents:
     # (free, faster/smaller) or `gpt` (paid OpenAI, most reliable).
     model: llama
     description: >
-      Discovers and triages new Docker Sandboxes (sbx) projects, then
-      auto-commits vetted candidates to the README's unreviewed section.
+      Discovers and triages new Docker Sandboxes (sbx) projects and blogs,
+      opens a tracking issue per find, then adds the vetted candidates to the
+      README's unreviewed section via a single auto-merged PR.
     toolsets:
       # Discovery via the Docker MCP Gateway. The GitHub server gives the
       # agent the GitHub search API directly (far more reliable for finding
@@ -97,18 +101,35 @@ agents:
       and append the good ones to a quarantined section of README.md.
 
       ## What counts as in-scope
-      Repositories, kits, templates, wrappers, articles, YouTube videos, or demos that are
-      specifically about Docker Sandboxes (the `sbx` CLI / microVM product).
+      Repositories, kits, templates, wrappers, articles, blog posts, YouTube
+      videos, or demos that are specifically about Docker Sandboxes (the `sbx`
+      CLI / microVM product).
+
+      ### GitHub discovery (cast a wide net)
       Use the `gh` CLI (already authenticated via GH_TOKEN) for discovery —
-      e.g. `gh search repos "docker sandboxes sbx" --sort updated --limit 50
-      --json fullName,url,description,stargazersCount,updatedAt`. Run several
-      queries with terms like: "docker sandboxes sbx", "sbx kit", "sbx
-      template", "docker-sbx", "sbx claude code". Compute the cutoff date
-      dynamically with `date -d '7 days ago' +%Y-%m-%d` (do NOT hardcode a
-      date). Prefer `gh search` over raw curl to the API (curl without auth is
-      rate-limited and returns empty). Use duckduckgo for non-GitHub resources
-      (blogs/articles/videos), including targeted queries like
-      `site:youtube.com docker sandboxes sbx`.
+      e.g. `gh search repos "docker sandboxes sbx" --sort updated --limit 100
+      --json fullName,url,description,stargazersCount,updatedAt`. Run MANY
+      queries so you surface as many genuine entries as possible, including:
+      "docker sandboxes sbx", "sbx kit", "sbx template", "sbx mixin",
+      "docker-sbx", "sbx claude code", "sbx codex", "sbx copilot",
+      "sbx gemini", "sbx microvm", "awesome docker sbx". Also search code and
+      topics: `gh search repos --topic docker-sandboxes --limit 100` and
+      `gh search code "docker agent run sbx" --limit 50`. Prefer `gh search`
+      over raw curl to the API (curl without auth is rate-limited and returns
+      empty). Compute the cutoff date dynamically with
+      `date -d '7 days ago' +%Y-%m-%d` (do NOT hardcode a date).
+
+      ### Blog & article discovery (latest published posts)
+      Use duckduckgo for non-GitHub resources — treat recent blogs as
+      first-class entries, not an afterthought. Run targeted queries across
+      the common sources, e.g.:
+      `docker sandboxes sbx blog`, `docker sbx tutorial`,
+      `site:dev.to docker sandboxes sbx`, `site:medium.com docker sbx`,
+      `site:collabnix.com docker sandboxes sbx`,
+      `site:docker.com/blog sandboxes`, `site:youtube.com docker sandboxes sbx`.
+      Prefer posts published within the window; include the publish date in the
+      entry when the page exposes one. Skip anything older than the window or
+      already present in the README.
 
       ## Hard exclusions (never add these)
       - Other sandbox products: E2B, Blaxel, Daytona, Modal, Firecracker-only
@@ -134,18 +155,47 @@ agents:
       4. Write a one-line entry per accepted candidate in this exact format:
          `- [title](url) — what it is. _Maturity: <stars/⭐, releases? | n/a>. Security: <proxy | host-env creds | n/a>. Auto-added <YYYY-MM-DD>, unreviewed._`
          For GitHub repositories, use `owner/name` as the title.
-      5. Append entries ONLY to the section titled
+      5. Entries are appended ONLY to the section titled
          "## Recently discovered (auto-added, unreviewed)". If that section
          does not exist, create it directly above the "## Contributing"
          section. NEVER modify any other section.
-      6. If nothing new and in-scope is found, make no changes and stop.
+      6. If nothing new and in-scope is found, make no changes, open no issue
+         or PR, and stop.
 
-      ## Committing
-      After editing, stage README.md and commit directly to the current
-      branch with a message like:
-        chore(curator): add N newly discovered sbx entries (unreviewed)
-      List the added repos in the commit body. Then stop. Do not force-push,
-      do not touch other files, and do not rewrite history.
+      ## Raising issues, PRs, and merging
+      Do NOT commit directly to main. For each run that finds new entries,
+      follow this exact flow using the `gh` CLI (authenticated via GH_TOKEN):
+
+      1. For EACH accepted new entry, open a tracking issue:
+           gh issue create \
+             --title "curator: add <owner/name or post title>" \
+             --body "<one-line description + the proposed README entry line>" \
+             --label agent-bot
+         Capture each issue number from the command output.
+      2. Create a single working branch for this run:
+           git switch -c curator/discoveries-$(date +%Y%m%d-%H%M%S)
+      3. Edit README.md on that branch: append every accepted entry (in the
+         one-line format above) to the "Recently discovered (auto-added,
+         unreviewed)" section. Stage and commit with a message like:
+           chore(curator): add N newly discovered sbx entries (unreviewed)
+         List the added entries in the commit body.
+      4. Push the branch and open a PR that closes every tracking issue:
+           git push -u origin HEAD
+           gh pr create --fill --label agent-bot \
+             --title "chore(curator): N newly discovered sbx entries" \
+             --body "Auto-discovered unreviewed entries.\n\nCloses #<issue1>\nCloses #<issue2>\n..."
+         Put one `Closes #<n>` line per issue in the body so merging the PR
+         auto-closes all of them.
+      5. Merge the PR:
+           gh pr merge --squash --admin --delete-branch
+         If `--admin` is rejected, fall back to
+         `gh pr merge --squash --auto --delete-branch` and leave it to
+         auto-merge. Do NOT force-push and do NOT rewrite history.
+
+      Keep it to ONE PR per run (not one PR per entry), but ONE issue per
+      entry so each discovery is individually tracked. If any gh command
+      fails, report the error in your final message and stop rather than
+      falling back to a direct push to main.
 
       ## Tone for descriptions
       Neutral and factual. This is a reference, not marketing. Honesty about

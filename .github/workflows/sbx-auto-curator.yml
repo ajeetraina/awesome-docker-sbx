@@ -11,7 +11,7 @@ on:
       prompt:
         description: "Curator prompt to run"
         required: false
-        default: "Find new Docker Sandboxes (sbx) repositories, YouTube videos, and related resources from the last week and auto-commit them to the unreviewed section so that folks can see the agent is managing the repo"
+        default: "Scan GitHub and the web for new Docker Sandboxes (sbx) repositories, latest blog posts, YouTube videos, and related resources from the last week. For each find, open a tracking issue, then add all entries to the unreviewed section via a single auto-merged PR so folks can see the agent is managing the repo"
         type: string
       task:
         description: "Curator task"
@@ -72,10 +72,11 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             PROMPT="${{ github.event.inputs.prompt }}"
           else
-            # Default scheduled prompt — always appends to the unreviewed
-            # section and auto-commits so contributors can see the agent
-            # is managing the repo.
-            PROMPT="Find new Docker Sandboxes (sbx) repositories, YouTube videos, and resources published in the last 7 days. For each genuine new entry, append it to the 'Recently discovered (auto-added, unreviewed)' section of README.md with a one-line description and a security/maturity flag, then commit directly to main with a message prefixed 'chore(curator):' so folks can see the agent is managing the repo."
+            # Default scheduled prompt — scans GitHub + the web, opens a
+            # tracking issue per find, and lands all entries in the
+            # unreviewed section via a single auto-merged PR so contributors
+            # can see the agent is managing the repo.
+            PROMPT="Scan GitHub and the web for new Docker Sandboxes (sbx) repositories, latest blog posts, YouTube videos, and resources published in the last 7 days. For each genuine new entry: (1) open a tracking issue labelled agent-bot, and (2) append it to the 'Recently discovered (auto-added, unreviewed)' section of README.md with a one-line description and a security/maturity flag. Put all the additions on a branch and open a single PR (labelled agent-bot) whose body closes every tracking issue, then merge it with 'chore(curator):' so folks can see the agent is managing the repo. Never push directly to main."
           fi
           echo "prompt=${PROMPT}" >> $GITHUB_OUTPUT
 
@@ -101,9 +102,9 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "- **Trigger**: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
           echo "- **Prompt**: ${{ steps.prompt.outputs.prompt }}" >> $GITHUB_STEP_SUMMARY
-          echo "- **Mode**: auto-commit to the unreviewed section (label: agent-bot)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Mode**: tracking issue per find + single auto-merged PR (label: agent-bot)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Auto-added entries land in the **Recently discovered (auto-added, unreviewed)**" >> $GITHUB_STEP_SUMMARY
-          echo "section of the README. Promote them into the curated sections after a human review." >> $GITHUB_STEP_SUMMARY
-          echo "Commits by the agent use the \`chore(curator):\` prefix and are visible in the" >> $GITHUB_STEP_SUMMARY
-          echo "[commit history](https://github.com/${{ github.repository }}/commits/main)." >> $GITHUB_STEP_SUMMARY
+          echo "Each discovery opens an [agent-bot issue](https://github.com/${{ github.repository }}/issues?q=label%3Aagent-bot);" >> $GITHUB_STEP_SUMMARY
+          echo "the entries land in the **Recently discovered (auto-added, unreviewed)** section of the" >> $GITHUB_STEP_SUMMARY
+          echo "README via a single [agent-bot PR](https://github.com/${{ github.repository }}/pulls?q=label%3Aagent-bot)" >> $GITHUB_STEP_SUMMARY
+          echo "that is merged automatically. Promote entries into the curated sections after a human review." >> $GITHUB_STEP_SUMMARY
