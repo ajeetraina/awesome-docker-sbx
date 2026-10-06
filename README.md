@@ -379,6 +379,7 @@ Adjacent Docker resources commonly used with Docker Sandboxes.
 - [Warfront1/opencode-ollama-cloud-docker-sbx](https://github.com/Warfront1/opencode-ollama-cloud-docker-sbx) — Securely run OpenCode AI agents with Ollama Cloud in a Docker Sandbox. _Maturity: 2⭐, not fork, no releases. Security: proxy. Auto-added 2026-10-05, unreviewed._
 ## sbx Cheatsheet
 
+
 Quick reference for `sbx` - safe, isolated environments for AI agents.
 
 ### 🔑 SSH access (experimental) - the new bit
