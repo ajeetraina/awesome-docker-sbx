@@ -86,6 +86,7 @@ Tools that wrap `sbx` to streamline per-project or per-task setup. A notable pat
 - [lukehedger/sbox](https://github.com/lukehedger/sbox) - Lightweight shell wrapper for launching **one-off Claude Code sandboxes** with opinionated defaults: branch-mode worktrees, `caffeinate` on macOS, Opus + `--dangerously-skip-permissions`, and `acli`/`bun` baked into a snapshotted template. Note: forwards Anthropic and Atlassian credentials into the sandbox via host env vars rather than the `sbx` credential proxy.
 - [thewiw/docker-sbx](https://github.com/thewiw/docker-sbx) - Tooling to install the Docker Sandboxes engine and create/manage sandboxes.
 - [acomagu/nix-docker-sbx](https://github.com/acomagu/nix-docker-sbx) - A Nix flake for running Docker Sandboxes on Linux.
+- [ChrisBoettner/sbx-pi-kit](https://github.com/ChrisBoettner/sbx-pi-kit) - A v2 spec Docker Sandbox kit for the Pi coding agent, updated to the latest sbx spec format.
 
 ## 📦 Kits
 
