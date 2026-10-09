@@ -538,3 +538,26 @@ Success looks like landing in `agent@<name>:~/workspace$` with zero prompts.
 | `ports` | Isolation knob: network in |
 | `policy` | Isolation knob: network out |
 | `secret` | Isolation knob: credentials |
+
+## Recently discovered (auto-added, unreviewed)
+- [ContainerSecurity-dev/sbx-examples](https://github.com/ContainerSecurity-dev/sbx-examples) - Step-by-step sbx and Docker Sandbox Kit walkthrough — companion to Docker Security Dispatch Issue 7. _Maturity: 0⭐, releases? n/a. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [NicolasNSSM/sbx-kit](https://github.com/NicolasNSSM/sbx-kit) - Docker sandbox kits. _Maturity: 0⭐, releases? n/a. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [Zweikaufswagen/codex-sbx-agent](https://github.com/Zweikaufswagen/codex-sbx-agent) - configs for a reproduktiv codex sbx container for docker sbx. _Maturity: 0⭐, releases? n/a. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [ajeetraina/migrate-sbx-kits-v2-to-v3](https://github.com/ajeetraina/migrate-sbx-kits-v2-to-v3) - 0. _Maturity: ⭐, releases? n/a. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [ajeetraina/sbx-kit-sonar-vortex](https://github.com/ajeetraina/sbx-kit-sonar-vortex) - 0. _Maturity: ⭐, releases? n/a. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [ajeetraina/sbx-kits-box-demo](https://github.com/ajeetraina/sbx-kits-box-demo) - 0. _Maturity: ⭐, releases? n/a. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [ajeetraina/sbx-kits-box](https://github.com/ajeetraina/sbx-kits-box) - 0. _Maturity: ⭐, releases? n/a. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [ajeetraina/sbx-kits-datadog](https://github.com/ajeetraina/sbx-kits-datadog) - sbx kit for Datadog AI Guard. _Maturity: 0⭐, releases? n/a. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [ajeetraina/sbx-kits-starter](https://github.com/ajeetraina/sbx-kits-starter) - 0. _Maturity: ⭐, releases? n/a. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [ajeetraina/sbx-mem0-kits-v2](https://github.com/ajeetraina/sbx-mem0-kits-v2) - sbx kits for mem0. _Maturity: 0⭐, releases? n/a. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [arikisonfire/omarchy-sbx-setup](https://github.com/arikisonfire/omarchy-sbx-setup) - Let an AI coding agent tweak Omarchy and build plugins and apps from inside a Docker Sandbox (sbx), with a narrow host bridge for shell restarts, logs, screenshots and test apps. _Maturity: 0⭐, releases? n/a. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [arteven/paseo-sbx](https://github.com/arteven/paseo-sbx) - Paseo plugin: manage Docker sbx sandboxes and expose them as agent providers. _Maturity: 0⭐, releases? n/a. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [cmrigney/sbx-kits](https://github.com/cmrigney/sbx-kits) - My personal sbx kits. _Maturity: 0⭐, releases? n/a. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [deneblab/sbx-templates](https://github.com/deneblab/sbx-templates) - 0. _Maturity: ⭐, releases? n/a. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [fpasquet/ai-sdk-harness](https://github.com/fpasquet/ai-sdk-harness) - Community packages for the AI SDK harnesses: a pnpm + Turbo monorepo, starting with ai-sdk-sandbox-sbx (Docker Sandboxes). _Maturity: 0⭐, releases? n/a. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [leubedane/docker-sandbox-sbx](https://github.com/leubedane/docker-sandbox-sbx) - Kits for docker sandbox. _Maturity: 0⭐, releases? n/a. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [marcelvdh/sbx-kits](https://github.com/marcelvdh/sbx-kits) - sbx kits. _Maturity: 0⭐, releases? n/a. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [shelajev/exa-sbx-kit](https://github.com/shelajev/exa-sbx-kit) - Docker Sandboxes kit for Exa search via MCP. _Maturity: 0⭐, releases? n/a. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [shelajev/ij-lsp-sbx-kit](https://github.com/shelajev/ij-lsp-sbx-kit) - Docker Sandbox kit for IntelliJ-powered Java and Kotlin language intelligence. _Maturity: 3⭐, releases? n/a. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [shelajev/junie-sbx-kit](https://github.com/shelajev/junie-sbx-kit) - Docker Sandboxes v3 kit for Junie CLI with JetBrains Account login, Junie Lite, and optional redacted OAuth diagnostics. _Maturity: 0⭐, releases? n/a. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [slu-it/media-tracker-sbx-kit](https://github.com/slu-it/media-tracker-sbx-kit) - 0. _Maturity: ⭐, releases? n/a. Security: n/a. Auto-added 2026-10-09, unreviewed._
