@@ -246,6 +246,11 @@ Adjacent Docker resources commonly used with Docker Sandboxes.
 - [Docker Agent docs](https://docs.docker.com/ai/cagent/) - Documentation for Docker Agent used in this repository’s auto-curator workflow.
 
 ## 🔎 Recently discovered (auto-added, unreviewed)
+- [Danstiv/sbx-dotfiles](https://github.com/Danstiv/sbx-dotfiles) — Personal dotfiles and image build for running Claude Code in Docker Sandbox (sbx). _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-11, unreviewed._
+- [arikisonfire/omarchy-sbx-setup](https://github.com/arikisonfire/omarchy-sbx-setup) — Let an AI coding agent tweak Omarchy and build plugins and apps from inside a Docker Sandbox (sbx), with a narrow host bridge for shell restarts, logs, screenshots and test apps.. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-11, unreviewed._
+- [jamessawle/sbx-kits](https://github.com/jamessawle/sbx-kits) — Reusable Docker Sandbox (sbx) kits for running coding agents in isolated environments. _Maturity: 0⭐, 5 release(s). Security: n/a. Auto-added 2026-10-11, unreviewed._
+- [Markeli/ai-agents-tooling](https://github.com/Markeli/ai-agents-tooling) — Claude Code in Docker Sandboxes (sbx) as a bot account: template image, kit and launcher. Plus skills, MCP servers and prompts for coding agents.. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-11, unreviewed._
+- [gnepud/herdr-sbx-box](https://github.com/gnepud/herdr-sbx-box) — Modular Docker Sandbox (sbx) multi-agent workspace managed by Herdr. _Maturity: 1⭐, no releases. Security: proxy. Auto-added 2026-10-11, unreviewed._
 
 - [ChrisBoettner/sbx-pi-kit](https://github.com/ChrisBoettner/sbx-pi-kit) - A v2 spec Docker Sandbox kit for the Pi coding agent, updated to the latest sbx spec format. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-08-21, unreviewed._
 - [WolfHero/codex-deepseek-sbx-kit](https://github.com/WolfHero/codex-deepseek-sbx-kit) - Sandbox kit based on `docker/sandbox-templates:codex` that keeps the Codex CLI intact while switching the model provider to DeepSeek, with sbx's built-in key injection mechanism for secure API key handling. _Maturity: 0⭐, no releases. Security: proxy. Auto-added 2026-08-21, unreviewed._
