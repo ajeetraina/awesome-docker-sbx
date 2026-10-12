@@ -56,6 +56,15 @@ Here's a place to suggest new ideas for Docker Sandbox Kits and get new ideas of
 - [Contributing](#contributing)
 - [sbx Cheatsheet](#sbx-cheatsheet)
 
+- [yada/reshapr-sbx-poc](https://github.com/yada/reshapr-sbx-poc) — Docker Sandboxes (sbx) kit giving a sandboxed agent governed access to APIs via a reShapr MCP server. _Maturity: 1⭐, no releases. Security: proxy. Auto-added 2026-10-12, unreviewed._
+- [arikisonfire/omarchy-sbx-setup](https://github.com/arikisonfire/omarchy-sbx-setup) — Let an AI coding agent tweak Omarchy and build plugins and apps from inside a Docker Sandbox (sbx), with a narrow host bridge for shell restarts, logs, screenshots and test apps.. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-12, unreviewed._
+- [stixxert/pi-docker-sandbox](https://github.com/stixxert/pi-docker-sandbox) — Pi extension: a private docker sandbox (sbx microVM with its own daemon) as the agent's deploy target — the host's docker is never exposed.. _Maturity: 0⭐, releases. Security: host-env creds. Auto-added 2026-10-12, unreviewed._
+- [andreasbehnke/docker-sbx-debian](https://github.com/andreasbehnke/docker-sbx-debian) —  Install Docker Sandboxes (sbx) on Debian — Docker ships docker-sbx for Ubuntu only.. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-12, unreviewed._
+- [shelajev/sbx-skill](https://github.com/shelajev/sbx-skill) — A host-agent skill for setting up, operating, configuring, and extending Docker Sandboxes (sbx).. _Maturity: 1⭐, no releases. Security: n/a. Auto-added 2026-10-12, unreviewed._
+- [dirien/herdr-sbx-plugin](https://github.com/dirien/herdr-sbx-plugin) — Herdr plugin that runs coding agents inside Docker Sandboxes (sbx), one microVM per agent. _Maturity: 5⭐, releases. Security: proxy. Auto-added 2026-10-12, unreviewed._
+- [mattjohnson/orca-sbx-recipes](https://github.com/mattjohnson/orca-sbx-recipes) — Orca plugin: one Docker Sandboxes (sbx) microVM per project — coding agents run isolated from your host. _Maturity: 7⭐, no releases. Security: proxy. Auto-added 2026-10-12, unreviewed._
+- [angelpoon77/hello-sbx](https://github.com/angelpoon77/hello-sbx) — docker sandbox sbx exercise. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-12, unreviewed._
+- [ajeetraina/docker-whaleness-day](https://github.com/ajeetraina/docker-whaleness-day) — 🐳 The docker/whalesay demo, reimagined with Docker Sandboxes (sbx) instead of docker run. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-12, unreviewed._
 ## ⭐ Featured Kits
 
 A hand-picked set of kits and setups worth starting with - spanning CI/CD, databases, local-model coding agents, and per-agent isolation. Several also appear in their category sections below.
