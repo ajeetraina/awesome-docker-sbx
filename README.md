@@ -379,6 +379,53 @@ Adjacent Docker resources commonly used with Docker Sandboxes.
 - [dlstadther/docker-sbx-poc](https://github.com/dlstadther/docker-sbx-poc) — Proof of Concept setting up and using Docker's sbx. _Maturity: 0⭐, not fork, no releases. Security: host-env creds or risky installer. Auto-added 2026-10-05, unreviewed._
 - [itbm/sbx-sdk](https://github.com/itbm/sbx-sdk) — A SDK for Docker AI Sandboxes (sbx). _Maturity: 1⭐, not fork, has releases. Security: n/a. Auto-added 2026-10-05, unreviewed._
 - [Warfront1/opencode-ollama-cloud-docker-sbx](https://github.com/Warfront1/opencode-ollama-cloud-docker-sbx) — Securely run OpenCode AI agents with Ollama Cloud in a Docker Sandbox. _Maturity: 2⭐, not fork, no releases. Security: proxy. Auto-added 2026-10-05, unreviewed._
+- [ChristianMoesl/pi-sbx](https://github.com/ChristianMoesl/pi-sbx) — Run Pi coding-agent tool calls inside Docker sbx sandboxes. _Maturity: 2⭐, no releases. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [ContainerSecurity-dev/sbx-examples](https://github.com/ContainerSecurity-dev/sbx-examples) — Step-by-step sbx and Docker Sandbox Kit walkthrough — companion to Docker Security Dispatch Issue 7. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-07, unreviewed._
+- [Danstiv/sbx-dotfiles](https://github.com/Danstiv/sbx-dotfiles) — Personal dotfiles and image build for running Claude Code in Docker Sandbox (sbx). _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-10, unreviewed._
+- [Freudenjunge/microsandbox-tui](https://github.com/Freudenjunge/microsandbox-tui) — A Docker sbx-style terminal dashboard for microsandbox — manage microVM sandboxes visually.. _Maturity: 1⭐, no releases. Security: n/a. Auto-added 2026-10-12, unreviewed._
+- [JLugagne/sbx-kits](https://github.com/JLugagne/sbx-kits) — . _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-10, unreviewed._
+- [NicolasNSSM/sbx-kit](https://github.com/NicolasNSSM/sbx-kit) — Docker sandbox kits. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [Zweikaufswagen/codex-sbx-agent](https://github.com/Zweikaufswagen/codex-sbx-agent) — configs for a reproduktiv codex sbx container for docker sbx. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [ajeetraina/sbx-kits-box](https://github.com/ajeetraina/sbx-kits-box) — . _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-08, unreviewed._
+- [ajeetraina/sbx-kits-datadog](https://github.com/ajeetraina/sbx-kits-datadog) — sbx kit for Datadog AI Guard. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-07, unreviewed._
+- [ajeetraina/sbx-kits-starter](https://github.com/ajeetraina/sbx-kits-starter) — . _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-08, unreviewed._
+- [arikisonfire/omarchy-sbx-setup](https://github.com/arikisonfire/omarchy-sbx-setup) — Let an AI coding agent tweak Omarchy and build plugins and apps from inside a Docker Sandbox (sbx), with a narrow host bridge for shell restarts, logs, screenshots and test apps.. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-07, unreviewed._
+- [clutchlabsapp/sbx-kits](https://github.com/clutchlabsapp/sbx-kits) — Docker sbx kits. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-12, unreviewed._
+- [cmrigney/sbx-kits](https://github.com/cmrigney/sbx-kits) — My personal sbx kits. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [codingforentrepreneurs/opencode-ollama-sbx-template](https://github.com/codingforentrepreneurs/opencode-ollama-sbx-template) — Docker Sandbox template for OpenCode & Ollama. _Maturity: 8⭐, no releases. Security: n/a. Auto-added 2026-10-08, unreviewed._
+- [deneblab/sbx-templates](https://github.com/deneblab/sbx-templates) — . _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [dirien/herdr-sbx-plugin](https://github.com/dirien/herdr-sbx-plugin) — Herdr plugin that runs coding agents inside Docker Sandboxes (sbx), one microVM per agent. _Maturity: 5⭐, no releases. Security: n/a. Auto-added 2026-10-10, unreviewed._
+- [docker/sbx-kits-contrib](https://github.com/docker/sbx-kits-contrib) — Community repository for sbx kits. _Maturity: 174⭐, no releases. Security: n/a. Auto-added 2026-10-13, unreviewed._
+- [dockersamples/sbx-quickstart](https://github.com/dockersamples/sbx-quickstart) — A quickstart for Docker Sandboxes (sbx). _Maturity: 99⭐, no releases. Security: n/a. Auto-added 2026-10-13, unreviewed._
+- [dvdksn/hermes-sbx-kit](https://github.com/dvdksn/hermes-sbx-kit) — Hermes Agent kit and prebuilt image for Docker Sandboxes. _Maturity: 1⭐, no releases. Security: n/a. Auto-added 2026-10-12, unreviewed._
+- [fluffynuts/vibe](https://github.com/fluffynuts/vibe) — Docker-SBX wrapper with kit setup for safer agentic coding. _Maturity: 1⭐, no releases. Security: n/a. Auto-added 2026-10-13, unreviewed._
+- [gnepud/herdr-sbx-box](https://github.com/gnepud/herdr-sbx-box) — Modular Docker Sandbox (sbx) multi-agent workspace managed by Herdr. _Maturity: 1⭐, no releases. Security: n/a. Auto-added 2026-10-10, unreviewed._
+- [iLittleSheep/sbx-template](https://github.com/iLittleSheep/sbx-template) — . _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-10, unreviewed._
+- [jamessawle/sbx-kits](https://github.com/jamessawle/sbx-kits) — Reusable Docker Sandbox (sbx) kits for running coding agents in isolated environments. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-06, unreviewed._
+- [jdewinne/sbx-kits](https://github.com/jdewinne/sbx-kits) — . _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-12, unreviewed._
+- [kotarotaniguchi0523/sbx-setup](https://github.com/kotarotaniguchi0523/sbx-setup) — my sbx template for opencode and codex. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-13, unreviewed._
+- [leubedane/docker-sandbox-sbx](https://github.com/leubedane/docker-sandbox-sbx) — Kits for docker sandbox. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-08, unreviewed._
+- [mark-cooper/docker-sbx-aws](https://github.com/mark-cooper/docker-sbx-aws) — . _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-08, unreviewed._
+- [mattjohnson/orca-sbx-recipes](https://github.com/mattjohnson/orca-sbx-recipes) — Orca plugin: one Docker Sandboxes (sbx) microVM per project — coding agents run isolated from your host. _Maturity: 7⭐, no releases. Security: n/a. Auto-added 2026-10-12, unreviewed._
+- [mbnVertica/opencode-sandbox-info](https://github.com/mbnVertica/opencode-sandbox-info) — OpenCode V2 TUI plugin — sidebar card showing ambient facts about the Docker Sandbox (sbx) the terminal runs in. Inert outside sandboxes.. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-13, unreviewed._
+- [mikeatlas/omp-sbx](https://github.com/mikeatlas/omp-sbx) — Run the oh-my-pi (omp) coding agent inside a Docker sbx sandbox. _Maturity: 35⭐, no releases. Security: n/a. Auto-added 2026-10-12, unreviewed._
+- [pavlov-net/sbx-templates](https://github.com/pavlov-net/sbx-templates) — Custom sandbox templates for Docker's sbx tool. _Maturity: 3⭐, no releases. Security: n/a. Auto-added 2026-10-09, unreviewed._
+- [praialabs/sbx-kits](https://github.com/praialabs/sbx-kits) — Custom Docker Sandboxes Kits. _Maturity: 1⭐, no releases. Security: n/a. Auto-added 2026-10-10, unreviewed._
+- [protyposis/sbx-kits](https://github.com/protyposis/sbx-kits) — Kits for Docker Sandbox. _Maturity: 1⭐, no releases. Security: n/a. Auto-added 2026-10-12, unreviewed._
+- [shaftoe/sbx-template-pi](https://github.com/shaftoe/sbx-template-pi) — Docker Sandbox template image for Pi coding agent. _Maturity: 6⭐, no releases. Security: n/a. Auto-added 2026-10-07, unreviewed._
+- [shelajev/agy-sbx-kit](https://github.com/shelajev/agy-sbx-kit) — Docker Sandboxes kit for running Google's Antigravity CLI (agy) in an isolated sandbox. _Maturity: 29⭐, no releases. Security: n/a. Auto-added 2026-10-07, unreviewed._
+- [shelajev/exa-sbx-kit](https://github.com/shelajev/exa-sbx-kit) — Docker Sandboxes kit for Exa search via MCP. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-06, unreviewed._
+- [shelajev/ij-lsp-sbx-kit](https://github.com/shelajev/ij-lsp-sbx-kit) — Docker Sandbox kit for IntelliJ-powered Java and Kotlin language intelligence. _Maturity: 3⭐, no releases. Security: n/a. Auto-added 2026-10-07, unreviewed._
+- [shelajev/junie-sbx-kit](https://github.com/shelajev/junie-sbx-kit) — Docker Sandboxes v3 kit for Junie CLI with JetBrains Account login, Junie Lite, and optional redacted OAuth diagnostics. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-07, unreviewed._
+- [shelajev/sbx-skill](https://github.com/shelajev/sbx-skill) — A host-agent skill for setting up, operating, configuring, and extending Docker Sandboxes (sbx).. _Maturity: 1⭐, no releases. Security: n/a. Auto-added 2026-10-10, unreviewed._
+- [snyk/evo-ads-sbx-kit](https://github.com/snyk/evo-ads-sbx-kit) — A Docker SBX Kit that pre-installs Evo Agentic Development Security components. _Maturity: 1⭐, no releases. Security: n/a. Auto-added 2026-10-13, unreviewed._
+- [thenickfish/docker-ai-sbx](https://github.com/thenickfish/docker-ai-sbx) — . _Maturity: 1⭐, no releases. Security: n/a. Auto-added 2026-10-11, unreviewed._
+- [tutros/sbxm](https://github.com/tutros/sbxm) — Rust CLI that creates per-project Docker Sandboxes (sbx) for Claude Code, Codex, Gemini CLI and Pi from one shared, versioned config, with deny-by-default egress, config drift detection and one-command rebuilds.. _Maturity: 1⭐, no releases. Security: n/a. Auto-added 2026-10-13, unreviewed._
+- [typisttech/sbx-kits](https://github.com/typisttech/sbx-kits) — . _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-11, unreviewed._
+- [v2p/sbx-kit-pi](https://github.com/v2p/sbx-kit-pi) — . _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-07, unreviewed._
+- [withlogicco/sbx-kit-lambda](https://github.com/withlogicco/sbx-kit-lambda) — . _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-12, unreviewed._
+- [yada/reshapr-sbx-poc](https://github.com/yada/reshapr-sbx-poc) — Docker Sandboxes (sbx) kit giving a sandboxed agent governed access to APIs via a reShapr MCP server. _Maturity: 1⭐, no releases. Security: n/a. Auto-added 2026-10-13, unreviewed._
+- [z-tb/sbx-kiro](https://github.com/z-tb/sbx-kiro) — Docker SBX for Kiro LLM. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-10, unreviewed._
 ## sbx Cheatsheet
 
 Quick reference for `sbx` - safe, isolated environments for AI agents.
