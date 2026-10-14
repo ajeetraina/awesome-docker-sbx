@@ -379,6 +379,9 @@ Adjacent Docker resources commonly used with Docker Sandboxes.
 - [dlstadther/docker-sbx-poc](https://github.com/dlstadther/docker-sbx-poc) — Proof of Concept setting up and using Docker's sbx. _Maturity: 0⭐, not fork, no releases. Security: host-env creds or risky installer. Auto-added 2026-10-05, unreviewed._
 - [itbm/sbx-sdk](https://github.com/itbm/sbx-sdk) — A SDK for Docker AI Sandboxes (sbx). _Maturity: 1⭐, not fork, has releases. Security: n/a. Auto-added 2026-10-05, unreviewed._
 - [Warfront1/opencode-ollama-cloud-docker-sbx](https://github.com/Warfront1/opencode-ollama-cloud-docker-sbx) — Securely run OpenCode AI agents with Ollama Cloud in a Docker Sandbox. _Maturity: 2⭐, not fork, no releases. Security: proxy. Auto-added 2026-10-05, unreviewed._
+- [yada/reshapr-sbx-poc](https://github.com/yada/reshapr-sbx-poc) — Docker Sandboxes (sbx) kit giving a sandboxed agent governed access to APIs via a reShapr MCP server. _Maturity: 1⭐, no releases. Security: proxy. Auto-added 2026-10-14, unreviewed._
+- [mbnVertica/opencode-sandbox-info](https://github.com/mbnVertica/opencode-sandbox-info) — An OpenCode (V2) TUI plugin that adds a sidebar card showing facts about the Docker Sandbox the terminal runs in. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-14, unreviewed._
+- [arikisonfire/omarchy-sbx-setup](https://github.com/arikisonfire/omarchy-sbx-setup) — Let an AI coding agent tweak Omarchy and build plugins and apps from inside a Docker Sandbox (sbx), with a narrow host bridge for shell restarts, logs, screenshots and test apps. _Maturity: 0⭐, no releases. Security: n/a. Auto-added 2026-10-07, unreviewed._
 ## sbx Cheatsheet
 
 Quick reference for `sbx` - safe, isolated environments for AI agents.
