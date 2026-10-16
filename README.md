@@ -379,6 +379,12 @@ Adjacent Docker resources commonly used with Docker Sandboxes.
 - [dlstadther/docker-sbx-poc](https://github.com/dlstadther/docker-sbx-poc) — Proof of Concept setting up and using Docker's sbx. _Maturity: 0⭐, not fork, no releases. Security: host-env creds or risky installer. Auto-added 2026-10-05, unreviewed._
 - [itbm/sbx-sdk](https://github.com/itbm/sbx-sdk) — A SDK for Docker AI Sandboxes (sbx). _Maturity: 1⭐, not fork, has releases. Security: n/a. Auto-added 2026-10-05, unreviewed._
 - [Warfront1/opencode-ollama-cloud-docker-sbx](https://github.com/Warfront1/opencode-ollama-cloud-docker-sbx) — Securely run OpenCode AI agents with Ollama Cloud in a Docker Sandbox. _Maturity: 2⭐, not fork, no releases. Security: proxy. Auto-added 2026-10-05, unreviewed._
+- [alex-pezarro-portswigger/aw-docker-sandbox](https://github.com/alex-pezarro-portswigger/aw-docker-sandbox) — Agent Wrangler extension: run Claude Code and Codex sessions inside local Docker Sandboxes (sbx). _Maturity: 0⭐, releases? | n/a. Security: n/a. Auto-added 2026-10-16, unreviewed._
+- [yada/reshapr-sbx-poc](https://github.com/yada/reshapr-sbx-poc) — Docker Sandboxes (sbx) kit giving a sandboxed agent governed access to APIs via a reShapr MCP server. _Maturity: 1⭐, releases? | n/a. Security: n/a. Auto-added 2026-10-15, unreviewed._
+- [mbnVertica/opencode-sandbox-info](https://github.com/mbnVertica/opencode-sandbox-info) — OpenCode V2 TUI plugin — sidebar card showing ambient facts about the Docker Sandbox (sbx) the terminal runs in. Inert outside sandboxes.. _Maturity: 0⭐, releases? | n/a. Security: n/a. Auto-added 2026-10-14, unreviewed._
+- [shelajev/sbx-skill](https://github.com/shelajev/sbx-skill) — A host-agent skill for setting up, operating, configuring, and extending Docker Sandboxes (sbx).. _Maturity: 1⭐, releases? | n/a. Security: n/a. Auto-added 2026-10-10, unreviewed._
+- [dirien/herdr-sbx-plugin](https://github.com/dirien/herdr-sbx-plugin) — Herdr plugin that runs coding agents inside Docker Sandboxes (sbx), one microVM per agent. _Maturity: 5⭐, releases? | n/a. Security: n/a. Auto-added 2026-10-10, unreviewed._
+- [mattjohnson/orca-sbx-recipes](https://github.com/mattjohnson/orca-sbx-recipes) — Orca plugin: one Docker Sandboxes (sbx) microVM per project — coding agents run isolated from your host. _Maturity: 7⭐, releases? | n/a. Security: n/a. Auto-added 2026-10-12, unreviewed._
 ## sbx Cheatsheet
 
 Quick reference for `sbx` - safe, isolated environments for AI agents.
