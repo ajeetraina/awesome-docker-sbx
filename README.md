@@ -539,4 +539,9 @@ Success looks like landing in `agent@<name>:~/workspace$` with zero prompts.
 | `mount` / `umount` | Isolation knob: files |
 | `ports` | Isolation knob: network in |
 | `policy` | Isolation knob: network out |
+## Recently discovered (auto-added, unreviewed)
+- [Danstiv/sbx-dotfiles](https://github.com/Danstiv/sbx-dotfiles) — Personal dotfiles and image build for running Claude Code in Docker Sandbox (sbx) . _Maturity: null⭐, releases? | n/a. Security: n/a. Auto-added 2026-10-19, unreviewed._
+- [yada/reshapr-sbx-poc](https://github.com/yada/reshapr-sbx-poc) — Docker Sandboxes (sbx) kit giving a sandboxed agent governed access to APIs via a reShapr MCP server . _Maturity: null⭐, releases? | n/a. Security: n/a. Auto-added 2026-10-19, unreviewed._
+- [mbnVertica/opencode-sandbox-info](https://github.com/mbnVertica/opencode-sandbox-info) — OpenCode V2 TUI plugin — sidebar card showing ambient facts about the Docker Sandbox (sbx) the terminal runs in. Inert outside sandboxes. . _Maturity: null⭐, releases? | n/a. Security: n/a. Auto-added 2026-10-19, unreviewed._
+- [Markeli/ai-agents-tooling](https://github.com/Markeli/ai-agents-tooling) — Claude Code in Docker Sandboxes (sbx) as a bot account: template image, kit and launcher. Plus skills, MCP servers and prompts for coding agents. . _Maturity: null⭐, releases? | n/a. Security: n/a. Auto-added 2026-10-19, unreviewed._
 | `secret` | Isolation knob: credentials |
