@@ -38,6 +38,7 @@ Here's a place to suggest new ideas for Docker Sandbox Kits and get new ideas of
 
 ## 📋 Contents
 
+- [What people are building with Docker Sandboxes](#-what-people-are-building-with-docker-sandboxes)
 - [Featured Kits](#featured-kits)
 - [Official](#official)
 - [Wrappers & CLIs](#wrappers--clis)
@@ -55,6 +56,44 @@ Here's a place to suggest new ideas for Docker Sandbox Kits and get new ideas of
 - [Recently discovered (auto-added, unreviewed)](#-recently-discovered-auto-added-unreviewed)
 - [Contributing](#contributing)
 - [sbx Cheatsheet](#sbx-cheatsheet)
+
+## 🛠️ What people are building with Docker Sandboxes
+
+Real-world applications and projects that commit an [`sbxenv.yaml`](https://docs.docker.com/ai/sandboxes/) to run their dev/agent environment inside a Docker sandbox. Discovered via public GitHub code search. Ordered by stars; "Last updated" is a point-in-time snapshot (2026-10-25).
+
+| Project | Repo | What it does | sbxenv.yaml | Last updated |
+|---|---|---|:---:|---|
+| **Calendr** | [pakerwreah/Calendr](https://github.com/pakerwreah/Calendr) | Menu bar calendar app for macOS (RxSwift / AppKit / SwiftUI) | [✅](https://github.com/pakerwreah/Calendr/blob/HEAD/sbxenv.yaml) | 2026-10-19 |
+| **chainloop** | [chainloop-dev/chainloop](https://github.com/chainloop-dev/chainloop) | Agentic SDLC infrastructure — guardrails, signed records, SBOM/VEX/SARIF/SLSA provenance | [✅](https://github.com/chainloop-dev/chainloop/blob/e484b561c6ba0f9a4d4090615dbbfa5805b6ac9e/sbxenv.yaml) | 2026-10-23 |
+| **open-realm** | [corepunch/open-realm](https://github.com/corepunch/open-realm) | Open-source Warcraft III / WoW / StarCraft II game engine in C | [✅](https://github.com/corepunch/open-realm/blob/46fa03323622f0ff22c169580a4f65375817a1d1/sbxenv.yaml) | 2026-10-23 |
+| **station_reach** | [ton-An/station_reach](https://github.com/ton-An/station_reach) | Transit reachability visualizer — "see where transit takes you" | [✅](https://github.com/ton-An/station_reach/blob/67df7cb23e98afef0352037c87aa05e26061498b/.sbxenv.yaml) | 2026-09-11 |
+| **unicorn-finance** | [jpmorgan-payments/unicorn-finance](https://github.com/jpmorgan-payments/unicorn-finance) | Sample app showcasing JP Morgan core payments APIs | [✅](https://github.com/jpmorgan-payments/unicorn-finance/blob/bba1d91041142c4fff46c54451c9837eca688c9f/sbxenv.yaml) | 2026-10-25 |
+| **puth** | [puth-io/puth](https://github.com/puth-io/puth) | Browser testing tool focused on stability, performance, and feedback | [✅](https://github.com/puth-io/puth/blob/HEAD/sbxenv.yaml) | 2026-10-23 |
+| **Mark2** | [mark2-omr/Mark2](https://github.com/mark2-omr/Mark2) | Web app for optical mark recognition (OMR) | [✅](https://github.com/mark2-omr/Mark2/blob/a5cfde48a2e8840e7ca7459b976849a3ba08352d/sbxenv.yaml) | 2026-10-19 |
+| **ExploitHunter.app** | [justsml/ExploitHunter.app](https://github.com/justsml/ExploitHunter.app) | Chat-based, LLM-assisted security research, pentest, and training suite | [✅](https://github.com/justsml/ExploitHunter.app/blob/28280c0c8afd0ec4e19eb2bf3000de21f2a1974b/.sbxenv.yaml) | 2026-10-23 |
+| **echo** | [clintonbampoe/echo](https://github.com/clintonbampoe/echo) | C# project (sbxenv.yaml shipped as a sandbox skill asset) | [✅](https://github.com/clintonbampoe/echo/blob/HEAD/.agents/skills/docker-sandboxes-env/assets/sbxenv.yaml) | 2026-10-25 |
+| **DHI definitions** | [docker-hardened-images/definitions](https://github.com/docker-hardened-images/definitions) | Docker Hardened Images definition files and catalog metadata | [✅](https://github.com/docker-hardened-images/definitions/blob/d5fded4b51b2d589695b0a9951dde0aca25dba9f/.sbxenv.yaml) | 2026-10-25 |
+| **forms-deploy** | [govuk-forms/forms-deploy](https://github.com/govuk-forms/forms-deploy) | Infrastructure to deploy GOV.UK Forms to AWS | [✅](https://github.com/govuk-forms/forms-deploy/blob/HEAD/local/sbx/sbxenv.yaml) | 2026-10-23 |
+| **personal-reporting-pipelines** | [michaelconan/personal-reporting-pipelines](https://github.com/michaelconan/personal-reporting-pipelines) | Infra and workflows for personal dlt pipelines and dbt models | [✅](https://github.com/michaelconan/personal-reporting-pipelines/blob/HEAD/sbxenv.yaml) | 2026-10-19 |
+| **computation-mitigation-ai-native-sdlc** | [BerendCheckpt/computation-mitigation-ai-native-sdlc](https://github.com/BerendCheckpt/computation-mitigation-ai-native-sdlc) | AI-native SDLC experiment (C#) | [✅](https://github.com/BerendCheckpt/computation-mitigation-ai-native-sdlc/blob/HEAD/sbxenv.yaml) | 2026-10-19 |
+| **docker-cloud-sandboxes-demo** | [ajeetraina/docker-cloud-sandboxes-demo](https://github.com/ajeetraina/docker-cloud-sandboxes-demo) | Collection of Docker Cloud Sandboxes demos | [✅](https://github.com/ajeetraina/docker-cloud-sandboxes-demo/blob/HEAD/agent-cli/codex-dhi/dhi-mixin/sbxenv.yaml) | 2026-10-20 |
+| **ai-engineering-from-scratch** | [mananch1/ai-engineering-from-scratch](https://github.com/mananch1/ai-engineering-from-scratch) | AI engineering learning repo (fork; sbxenv.yaml as a manual fixture) | [✅](https://github.com/mananch1/ai-engineering-from-scratch/blob/HEAD/manuals/docker-sandboxes-101/capture/fixtures/env/sbxenv.yaml) | 2026-10-18 |
+| **aibibliotek** | [itk-dev/aibibliotek](https://github.com/itk-dev/aibibliotek) | Library of AI assistants and distributable config for OpenWebUI | [✅](https://github.com/itk-dev/aibibliotek/blob/cda78747cef80d33922181cf68b3a7eca56b3ab7/sbxenv.yaml) | 2026-10-21 |
+| **Docker-AI-Governance** | [Raveendiran-RR/Docker-AI-Governance](https://github.com/Raveendiran-RR/Docker-AI-Governance) | SimSpace exercise on Docker AI governance | [✅](https://github.com/Raveendiran-RR/Docker-AI-Governance/blob/dd2468b32928772b619d28458ce64d6a0e82b14d/.sbxenv.yaml) | 2026-09-26 |
+| **desktop-nixos** | [ErikBPF/desktop-nixos](https://github.com/ErikBPF/desktop-nixos) | Dendritic NixOS flake — fleet system config and single source of truth | [✅](https://github.com/ErikBPF/desktop-nixos/blob/c00c271d0c2d095d5ecb25c76a23da182698a8bd/.sbxenv.yaml) | 2026-10-25 |
+| **Phys.io** | [MynameisKoi/Phys.io](https://github.com/MynameisKoi/Phys.io) | Hack-Nation 7th hackathon project (Python) | [✅](https://github.com/MynameisKoi/Phys.io/blob/e44955b5516bea1d2e9f426b1d996b78b26642ac/sbxenv.yaml) | 2026-10-06 |
+| **devenv** | [digigrant/devenv](https://github.com/digigrant/devenv) | Personal development environment setup (Shell) | [✅](https://github.com/digigrant/devenv/blob/e54d49754ef6a27489e854eab7d054454eccc7bb/sbxenv.yaml) | 2026-10-08 |
+| **pgn-training-reader** | [caballo111/pgn-training-reader](https://github.com/caballo111/pgn-training-reader) | Chess PGN training reader (Dart) | [✅](https://github.com/caballo111/pgn-training-reader/blob/d69e2ea5c28bd664a8348019d0132394f7369971/sbxenv.yaml) | 2026-10-14 |
+| **2g14.com** | [2G14/2g14.com](https://github.com/2G14/2g14.com) | Personal website / project (TypeScript) | [✅](https://github.com/2G14/2g14.com/blob/264cd627b201a4dc0202b733b4002352a5c42ecb/sbxenv.yaml) | 2026-10-25 |
+| **bayto** | [Kibrom1/bayto](https://github.com/Kibrom1/bayto) | Python project (team-scoped sbxenv) | [✅](https://github.com/Kibrom1/bayto/blob/5bd8f94e88a7de64807f2a3ebf0049a160170fb9/envs/team.sbxenv.yaml) | 2026-10-25 |
+| **filmnotes** | [xela1601/filmnotes](https://github.com/xela1601/filmnotes) | Film notes app (TypeScript) | [✅](https://github.com/xela1601/filmnotes/blob/5dc0f3accecc7a6e7b6d675626c41c20eab5fafe/sbxenv.yaml) | 2026-10-01 |
+| **msc-math** | [JoernStoehler/msc-math](https://github.com/JoernStoehler/msc-math) | MSc mathematics project (Rust) | [✅](https://github.com/JoernStoehler/msc-math/blob/01aba0a30829727d41b9a5264193c08ac4b1b6a1/sandbox/sbxenv.yaml) | 2026-10-14 |
+| **swimfrancisco** | [cbzehner/swimfrancisco](https://github.com/cbzehner/swimfrancisco) | Swim San Francisco site (HTML) | [✅](https://github.com/cbzehner/swimfrancisco/blob/HEAD/sandbox/sbxenv.yaml) | 2026-10-24 |
+| **shosai** | [shakhbanovzurab-beep/shosai](https://github.com/shakhbanovzurab-beep/shosai) | Python project (sbxenv.yaml as a Claude skill asset) | [✅](https://github.com/shakhbanovzurab-beep/shosai/blob/HEAD/.claude/skills/docker-sandboxes-env/assets/sbxenv.yaml) | 2026-10-25 |
+| **ai_eng** | [mutassimalzeem/ai_eng](https://github.com/mutassimalzeem/ai_eng) | AI engineering project (sbxenv.yaml as a manual fixture) | [✅](https://github.com/mutassimalzeem/ai_eng/blob/HEAD/manuals/docker-sandboxes-101/capture/fixtures/env/sbxenv.yaml) | 2026-10-22 |
+| **vizlify** | [f-ei8ht/vizlify](https://github.com/f-ei8ht/vizlify) | Data visualization app (sbxenv.yaml as a sandbox skill asset) | [✅](https://github.com/f-ei8ht/vizlify/blob/HEAD/.agents/skills/docker-sandboxes-env/assets/sbxenv.yaml) | 2026-10-20 |
+
+> Every project above commits an `sbxenv.yaml` (✅ links to the file). Some repos ship it as a skill/manual fixture asset rather than a root-level sandbox config — noted inline where that's the case.
 
 ## ⭐ Featured Kits
 
