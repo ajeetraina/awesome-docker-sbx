@@ -66,6 +66,8 @@ Real-world applications and projects that commit an [`sbxenv.yaml`](https://docs
 | **Calendr** | [pakerwreah/Calendr](https://github.com/pakerwreah/Calendr) | Menu bar calendar app for macOS (RxSwift / AppKit / SwiftUI) | [✅](https://github.com/pakerwreah/Calendr/blob/HEAD/sbxenv.yaml) | 2026-10-19 |
 | **chainloop** | [chainloop-dev/chainloop](https://github.com/chainloop-dev/chainloop) | Agentic SDLC infrastructure — guardrails, signed records, SBOM/VEX/SARIF/SLSA provenance | [✅](https://github.com/chainloop-dev/chainloop/blob/e484b561c6ba0f9a4d4090615dbbfa5805b6ac9e/sbxenv.yaml) | 2026-10-23 |
 | **open-realm** | [corepunch/open-realm](https://github.com/corepunch/open-realm) | Open-source Warcraft III / WoW / StarCraft II game engine in C | [✅](https://github.com/corepunch/open-realm/blob/46fa03323622f0ff22c169580a4f65375817a1d1/sbxenv.yaml) | 2026-10-23 |
+| **agentuse** | [agentuse/agentuse](https://github.com/agentuse/agentuse) | Run AI agents on autopilot — any model, local / cron / CI/CD / Docker | [✅](https://github.com/agentuse/agentuse/blob/HEAD/.sbxenv.yaml) | 2026-10-17 |
+| **tachyon** | [tachyonmcp/tachyon](https://github.com/tachyonmcp/tachyon) | Framework-agnostic Model Context Protocol (MCP) runtime for Java and Kotlin | [✅](https://github.com/tachyonmcp/tachyon/blob/HEAD/sbxenv.yaml) | 2026-10-24 |
 | **station_reach** | [ton-An/station_reach](https://github.com/ton-An/station_reach) | Transit reachability visualizer — "see where transit takes you" | [✅](https://github.com/ton-An/station_reach/blob/67df7cb23e98afef0352037c87aa05e26061498b/.sbxenv.yaml) | 2026-09-11 |
 | **unicorn-finance** | [jpmorgan-payments/unicorn-finance](https://github.com/jpmorgan-payments/unicorn-finance) | Sample app showcasing JP Morgan core payments APIs | [✅](https://github.com/jpmorgan-payments/unicorn-finance/blob/bba1d91041142c4fff46c54451c9837eca688c9f/sbxenv.yaml) | 2026-10-25 |
 | **puth** | [puth-io/puth](https://github.com/puth-io/puth) | Browser testing tool focused on stability, performance, and feedback | [✅](https://github.com/puth-io/puth/blob/HEAD/sbxenv.yaml) | 2026-10-23 |
@@ -92,6 +94,7 @@ Real-world applications and projects that commit an [`sbxenv.yaml`](https://docs
 | **shosai** | [shakhbanovzurab-beep/shosai](https://github.com/shakhbanovzurab-beep/shosai) | Python project (sbxenv.yaml as a Claude skill asset) | [✅](https://github.com/shakhbanovzurab-beep/shosai/blob/HEAD/.claude/skills/docker-sandboxes-env/assets/sbxenv.yaml) | 2026-10-25 |
 | **ai_eng** | [mutassimalzeem/ai_eng](https://github.com/mutassimalzeem/ai_eng) | AI engineering project (sbxenv.yaml as a manual fixture) | [✅](https://github.com/mutassimalzeem/ai_eng/blob/HEAD/manuals/docker-sandboxes-101/capture/fixtures/env/sbxenv.yaml) | 2026-10-22 |
 | **vizlify** | [f-ei8ht/vizlify](https://github.com/f-ei8ht/vizlify) | Data visualization app (sbxenv.yaml as a sandbox skill asset) | [✅](https://github.com/f-ei8ht/vizlify/blob/HEAD/.agents/skills/docker-sandboxes-env/assets/sbxenv.yaml) | 2026-10-20 |
+| **microduck-docker-sandbox** | [ajeetraina/microduck-docker-sandbox](https://github.com/ajeetraina/microduck-docker-sandbox) | Run the Microduck robot simulator inside an sbx microVM — isolated, network-off | [✅](https://github.com/ajeetraina/microduck-docker-sandbox/blob/HEAD/sbxenv.yaml) | 2026-10-25 |
 
 > Every project above commits an `sbxenv.yaml` (✅ links to the file). Some repos ship it as a skill/manual fixture asset rather than a root-level sandbox config — noted inline where that's the case.
 
@@ -113,6 +116,7 @@ Resources maintained by Docker.
 - [Docker Sandboxes Documentation](https://docs.docker.com/ai/sandboxes/) - Official docs: get started, usage, agents, customize, architecture, security, CLI reference, and FAQ.
 - [docker/sbx-kits-contrib](https://github.com/docker/sbx-kits-contrib) - Community repository for `sbx` kits, maintained under the Docker org. Each top-level directory is a kit with a `spec.yaml`. Enforces verified commit signatures.
 - [dockersamples/sbx-quickstart](https://github.com/dockersamples/sbx-quickstart) - Official quickstart walkthrough: mount a workspace, run an agent, work with branches, and explore the network governance panel.
+- [docker/sandbox-kit-spec](https://github.com/docker/sandbox-kit-spec) - The Docker Sandbox Kit Specification v3: kit descriptor grammar, the OCI artifact, the build frontend, and the conformance suites. The reference for kit authors.
 - [Product page: Docker Sandboxes](https://www.docker.com/products/docker-sandboxes/) - Overview, supported agents, and install commands for macOS, Windows, and Linux.
 
 ## 🔧 Wrappers & CLIs
@@ -127,6 +131,14 @@ Tools that wrap `sbx` to streamline per-project or per-task setup. A notable pat
 - [thewiw/docker-sbx](https://github.com/thewiw/docker-sbx) - Tooling to install the Docker Sandboxes engine and create/manage sandboxes.
 - [acomagu/nix-docker-sbx](https://github.com/acomagu/nix-docker-sbx) - A Nix flake for running Docker Sandboxes on Linux.
 - [ChrisBoettner/sbx-pi-kit](https://github.com/ChrisBoettner/sbx-pi-kit) - A v2 spec Docker Sandbox kit for the Pi coding agent, updated to the latest sbx spec format.
+- [mattjohnson/orca-sbx-recipes](https://github.com/mattjohnson/orca-sbx-recipes) - 🆕 Orca plugin that gives each project its own `sbx` microVM, so coding agents run isolated from the host.
+- [dirien/herdr-sbx-plugin](https://github.com/dirien/herdr-sbx-plugin) - 🆕 Herdr plugin that runs coding agents inside `sbx`, one microVM per agent.
+- [docker/claude-code-sbx-shell](https://github.com/docker/claude-code-sbx-shell) - 🆕 PoC Claude Code mod that runs Bash tool calls inside local Docker Sandboxes.
+- [mbnVertica/opencode-sandbox-info](https://github.com/mbnVertica/opencode-sandbox-info) - 🆕 OpenCode V2 TUI plugin: a sidebar card showing ambient facts about the sandbox the terminal runs in (inert outside sandboxes).
+- [Dr-Crow/openclaw-sbx-sandbox](https://github.com/Dr-Crow/openclaw-sbx-sandbox) - 🆕 OpenClaw sandbox backend that runs agent tools in `sbx` microVMs (unofficial).
+- [Dr-Crow/hermes-sbx-backend](https://github.com/Dr-Crow/hermes-sbx-backend) - 🆕 Hermes agent terminal backend that runs agent tools in `sbx` microVMs (unofficial).
+- [gw0/docker-sbx-offline](https://github.com/gw0/docker-sbx-offline) - 🆕 Offline patch for Docker Sandboxes.
+- [andreasbehnke/docker-sbx-debian](https://github.com/andreasbehnke/docker-sbx-debian) - 🆕 Install `sbx` on Debian - Docker ships `docker-sbx` for Ubuntu only.
 
 ## 📦 Kits
 
@@ -160,6 +172,12 @@ Declarative YAML artifacts ([kits](https://docs.docker.com/ai/sandboxes/customiz
 - [ajeetraina/sbx-kits-dagger](https://github.com/ajeetraina/sbx-kits-dagger) - 🆕 Mixin kit that adds [Dagger](https://dagger.io/), a programmable containerized CI/CD engine, to any sandbox agent. Installs the Dagger CLI as the agent user and allow-lists only the egress Dagger needs; the engine provisions and runs entirely inside the sandbox's own private Docker daemon - no host access, no remote runner. Dagger Cloud is optional and off by default. (Also in [Featured Kits](#featured-kits).)
 - [ajeetraina/sbx-kits-surrealdb](https://github.com/ajeetraina/sbx-kits-surrealdb) - 🆕 Mixin kit that embeds [SurrealDB](https://surrealdb.com/) - documents, graph edges, and native vector search in one process - plus the `surrealdb` Python SDK into any agent. SurrealDB runs in-process and persists on disk inside the VM; vector search is pre-wired to a local Docker Model Runner embedder (swappable to OpenAI or Gemini), giving an agent semantic memory with no separate vector database. (Also in [Featured Kits](#featured-kits).)
 - [dirien/infrastructure-sandbox-kit](https://github.com/dirien/infrastructure-sandbox-kit) - 🆕 Mixin kit that sets up a Claude Code sandbox for Infrastructure-as-Code work: Pulumi, Terraform, OpenTofu, and the AWS/Azure/Google Cloud CLIs (version-pinned, checksum- or signature-verified), plus language servers and an APM setup (skills, subagents, guardrail hooks, Pulumi MCP) in the agent home. The Pulumi Cloud token is proxy-managed. The same repo ships a matching template image (see Templates & Images).
+- [shelajev/ij-lsp-sbx-kit](https://github.com/shelajev/ij-lsp-sbx-kit) - 🆕 Kit providing IntelliJ-powered Java and Kotlin language intelligence (LSP) inside a sandbox.
+- [nikcio/docker-sandboxing](https://github.com/nikcio/docker-sandboxing) - 🆕 Collection of Docker sandbox templates, kits, and mixins.
+- [yada/reshapr-sbx-poc](https://github.com/yada/reshapr-sbx-poc) - 🆕 Kit giving a sandboxed agent governed access to APIs via a reShapr MCP server.
+- [nickorefice/sbx-rules-by-repo](https://github.com/nickorefice/sbx-rules-by-repo) - 🆕 Per-repository rule sets for AI coding agents: a committed `.sbxenv.yaml` plus versioned, signable rule kits.
+- [sigaostudios/sandbox-kits](https://github.com/sigaostudios/sandbox-kits) - 🆕 Published Docker sandbox kits for direct use in `sbxenv.yaml` files.
+- [nkapatos/sbx-kit](https://github.com/nkapatos/sbx-kit) - 🆕 Collection of templates, kits, and a small CLI to streamline working with `sbx`.
 
 ## 🖼️ Templates & Images
 
@@ -207,6 +225,7 @@ Personal and project setups focused on a particular agent or environment.
 - [wireless25/crush-sandbox](https://github.com/wireless25/crush-sandbox) - Docker sandbox for the Crush CLI (Charmbracelet) with Git worktree support for multi-branch parallel agent work and per-workspace persistent caching.
 - [mikeatlas/omp-sbx](https://github.com/mikeatlas/omp-sbx) - 🆕 Full setup for running the oh-my-pi (omp) coding agent in a Docker sbx microVM. Shares `~/.omp` state across restarts, supports parallel worktree-based sandboxes, ships LSP servers, and replaces Puppeteer with a native Rust browser CLI to work around sbx's Chromium constraints.
 - [cdr-chakotay/sbx-mistral](https://github.com/cdr-chakotay/sbx-mistral) - 🆕 Docker sandbox for running Mistral Vibe CLI in full isolation. Launches in YOLO mode (auto-approve) by default; switch to confirmation-based modes via Shift+Tab for more controlled execution.
+- [methanoya/sandboxed-browser-use](https://github.com/methanoya/sandboxed-browser-use) - 🆕 Run the Claude CLI (or another AI CLI) with a managed browser inside a Docker Sandbox on Apple Silicon.
 
 ## 🔐 Security & Demos
 
@@ -226,6 +245,13 @@ Step-by-step, task-focused walkthroughs.
 - [Run Claude Code in a Docker Sandbox with Docker Model Runner](https://docs.docker.com/guides/claude-code-sandbox-model-runner/) - Point Claude Code at a local model served by Docker Model Runner via `ANTHROPIC_BASE_URL` and a policy rule.
 - [Customized templates with Docker sandbox](https://andrewlock.net/running-ai-agents-with-customized-templates-in-docker-sandbox/) - Andrew Lock on building custom templates: adding tools to the default base, or layering `sbx` tooling onto a different base image.
 - [ajeetraina/labspace-sbx](https://github.com/ajeetraina/labspace-sbx) - 🆕 Interactive lab for learning Docker Sandboxes: starts a local ttyd terminal alongside step-by-step instructions covering microVM isolation, credential proxy, network policy, git worktrees, parallel agents, Docker Model Runner, and enterprise governance.
+- [shelajev/wad-sbx-workshop](https://github.com/shelajev/wad-sbx-workshop) - 🆕 Hands-on Docker Sandboxes workshop: from one agent to a software factory.
+- [dockersamples/wad-2026-dev-env-workshop](https://github.com/dockersamples/wad-2026-dev-env-workshop) - 🆕 WeAreDevelopers 2026 dev-environment workshop materials built around `sbx`.
+- [mikesir87/2026-08-data-science-dojo-dev-env-workshop](https://github.com/mikesir87/2026-08-data-science-dojo-dev-env-workshop) - 🆕 Presentation and lab materials for a Data Science Dojo workshop on sandboxed dev environments (Aug 2026).
+- [kinfey/EnterpriseAgenticWorkshop](https://github.com/kinfey/EnterpriseAgenticWorkshop) - 🆕 One-day enterprise agent workshop covering skill testing and sandboxed multi-agent pipelines.
+- [DrewStewart-fd/docker-sbx-slides](https://github.com/DrewStewart-fd/docker-sbx-slides) - 🆕 Slide deck: running AI coding agents safely in Docker Sandboxes.
+- [angelpoon77/hello-sbx](https://github.com/angelpoon77/hello-sbx) - 🆕 A small hands-on `sbx` exercise.
+- [shelajev/mistral-vibe-sbx-demo](https://github.com/shelajev/mistral-vibe-sbx-demo) - 🆕 Demo of running Mistral Vibe inside a Docker Sandbox.
 
 ## 📰 Articles & Deep Dives
 
