@@ -4,18 +4,18 @@ version: "2"
 models:
   # Primary model. Free via NVIDIA build.nvidia.com (OpenAI-compatible
   # endpoint, declared as an `openai` provider with a base_url override).
-  # Nemotron 3 Super is a hybrid Mamba-Transformer MoE tuned for agentic
-  # reasoning and tool calling. The openai provider authenticates from
-  # OPENAI_API_KEY, which the workflow points at the repo's NVIDIA_API_KEY
-  # secret.
+  # Llama 3.3 Nemotron Super 49B is tuned for agentic reasoning and tool
+  # calling. The openai provider authenticates from OPENAI_API_KEY, which
+  # the workflow points at the repo's NVIDIA_API_KEY secret.
   # Note: NVIDIA retires free models periodically. Previously used
-  # meta/llama-3.3-70b-instruct (EOL 2026-08-26) and then
-  # nvidia/llama-3.1-nemotron-70b-instruct (returns a per-account 404 —
-  # no longer served on integrate.api.nvidia.com). If this one starts
+  # meta/llama-3.3-70b-instruct (EOL 2026-08-26), then
+  # nvidia/llama-3.1-nemotron-70b-instruct, then
+  # nvidia/nemotron-3-super-120b-a12b — all now return a per-account 404
+  # (no longer served on integrate.api.nvidia.com). If this one starts
   # 404ing too, check build.nvidia.com for the current model id.
   llama:
     provider: openai
-    model: nvidia/nemotron-3-super-120b-a12b
+    model: nvidia/llama-3.3-nemotron-super-49b-v1.5
     base_url: https://integrate.api.nvidia.com/v1
 
   # Fallback (same free NVIDIA endpoint).
