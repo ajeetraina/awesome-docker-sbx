@@ -80,6 +80,37 @@ jobs:
           fi
           echo "prompt=${PROMPT}" >> $GITHUB_OUTPUT
 
+      - name: Select a live NVIDIA model
+        id: model
+        env:
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+        run: |
+          # NVIDIA retires the free NIM models every few months, so a
+          # hardcoded id eventually returns 404 (not served for this account)
+          # or 410 Gone (reached end of life) and the whole run aborts. To
+          # avoid that recurring breakage, query the account's live catalog
+          # and pick the first preferred agentic/tool-calling model that is
+          # actually served, then inject it into the agent config at runtime.
+          AVAIL=$(curl -s https://integrate.api.nvidia.com/v1/models \
+            -H "Authorization: Bearer $NVIDIA_API_KEY" | jq -r '.data[].id')
+          echo "Models served for this account:"; echo "$AVAIL"
+          # Preference order: proven agentic/tool-calling models first.
+          PREFERRED="nvidia/nemotron-3.5-super-vl-120b-a12b nvidia/nemotron-3.5-lightning-30b-a3b nvidia/llama-3.3-nemotron-super-49b-v1.5 meta/llama-3.3-70b-instruct"
+          PICK=""
+          for m in $PREFERRED; do
+            if echo "$AVAIL" | grep -qx "$m"; then PICK="$m"; break; fi
+          done
+          # Fallback: any served nemotron / llama-3 instruct model.
+          if [ -z "$PICK" ]; then
+            PICK=$(echo "$AVAIL" | grep -iE 'nemotron|llama-3' | head -1)
+          fi
+          if [ -z "$PICK" ]; then
+            echo "::error::No suitable NVIDIA model is served for this account. Check build.nvidia.com and update the preference list."
+            exit 1
+          fi
+          echo "Selected model: $PICK"
+          echo "model=$PICK" >> $GITHUB_OUTPUT
+
       - name: Run sbx Curator Agent
         env:
           # The active `llama` model talks to NVIDIA's OpenAI-compatible
@@ -92,6 +123,12 @@ jobs:
           GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PAT }}
           GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
+          # Point the primary `llama` model at the live id chosen above.
+          # 0,/re/ replaces only the FIRST `model: nvidia/...` line (the
+          # `llama` agent); `llama_fallback` and the paid `gpt` are untouched.
+          sed -i "0,/^    model: nvidia\/.*/s||    model: ${{ steps.model.outputs.model }}|" \
+            ./workflow/auto-curator-agent/sbx-curator.yaml
+          echo "Primary model line now:"; grep -m1 '^    model:' ./workflow/auto-curator-agent/sbx-curator.yaml
           docker agent run --yolo ./workflow/auto-curator-agent/sbx-curator.yaml \
             "${{ steps.prompt.outputs.prompt }}"
 

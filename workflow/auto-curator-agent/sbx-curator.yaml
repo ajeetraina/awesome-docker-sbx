@@ -4,18 +4,22 @@ version: "2"
 models:
   # Primary model. Free via NVIDIA build.nvidia.com (OpenAI-compatible
   # endpoint, declared as an `openai` provider with a base_url override).
-  # Llama 3.3 Nemotron Super 49B is tuned for agentic reasoning and tool
-  # calling. The openai provider authenticates from OPENAI_API_KEY, which
-  # the workflow points at the repo's NVIDIA_API_KEY secret.
-  # Note: NVIDIA retires free models periodically. Previously used
-  # meta/llama-3.3-70b-instruct (EOL 2026-08-26), then
-  # nvidia/llama-3.1-nemotron-70b-instruct, then
-  # nvidia/nemotron-3-super-120b-a12b — all now return a per-account 404
-  # (no longer served on integrate.api.nvidia.com). If this one starts
-  # 404ing too, check build.nvidia.com for the current model id.
+  # The openai provider authenticates from OPENAI_API_KEY, which the
+  # workflow points at the repo's NVIDIA_API_KEY secret.
+  #
+  # IMPORTANT: NVIDIA retires free NIM models every few months. The id below
+  # is only a best-effort default for LOCAL `docker agent run`. In CI the
+  # "Select a live NVIDIA model" step queries the account's /v1/models
+  # catalog and rewrites this line to whatever is actually served, so the
+  # scheduled run no longer breaks when an id is retired.
+  # Retired so far (all now 404 per-account or 410 Gone on
+  # integrate.api.nvidia.com): meta/llama-3.3-70b-instruct (EOL 2026-08-26),
+  # nvidia/llama-3.1-nemotron-70b-instruct, nvidia/nemotron-3-super-120b-a12b,
+  # nvidia/llama-3.3-nemotron-super-49b-v1.5 (EOL 2026-08-26). For a local
+  # run, check build.nvidia.com and set a currently-served id here.
   llama:
     provider: openai
-    model: nvidia/llama-3.3-nemotron-super-49b-v1.5
+    model: nvidia/nemotron-3.5-super-vl-120b-a12b
     base_url: https://integrate.api.nvidia.com/v1
 
   # Fallback (same free NVIDIA endpoint).
