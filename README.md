@@ -59,7 +59,7 @@ Here's a place to suggest new ideas for Docker Sandbox Kits and get new ideas of
 
 ## 🛠️ What people are building with Docker Sandboxes
 
-Real-world applications and projects that commit an [`sbxenv.yaml`](https://docs.docker.com/ai/sandboxes/) to run their dev/agent environment inside a Docker sandbox. Discovered via public GitHub code search. Ordered by stars; "Last updated" is a point-in-time snapshot (2026-10-25).
+Real-world applications and projects that commit an [`sbxenv.yaml`](https://docs.docker.com/ai/sandboxes/) to run their dev/agent environment inside a Docker sandbox. Discovered via public GitHub code search. Ordered by stars; "Last updated" is a point-in-time snapshot (2026-11-21).
 
 | Project | Repo | What it does | sbxenv.yaml | Last updated |
 |---|---|---|:---:|---|
